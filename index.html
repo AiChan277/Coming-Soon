@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rachelian — Coming Very Soon :3</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Rachelian is building something special. A cozy, cute, and delightful new digital space is coming very soon :3">
+  <meta name="author" content="rachelian">
+  <meta name="theme-color" content="#0d0a1a">
+  
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rachelian — Coming Very Soon :3">
+  <meta property="og:description" content="Something cute and amazing is on the way! Please wait warmly ♡">
+  <meta property="og:image" content="./assets/scene.webp">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rachelian — Coming Very Soon :3">
+  <meta name="twitter:description" content="Something cute and amazing is on the way! Please wait warmly ♡">
+  <meta name="twitter:image" content="./assets/scene.webp">
+
+  <!-- Favicon (Cute Cat Face SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fca5d5' d='M6 6l6 6h8l6-6v14a10 10 0 0 1-20 0V6z'/%3E%3Cpolygon fill='%23f472b6' points='6,6 10,12 6,12'/%3E%3Cpolygon fill='%23f472b6' points='26,6 22,12 26,12'/%3E%3Ccircle cx='11' cy='18' r='1.5' fill='%231e1135'/%3E%3Ccircle cx='21' cy='18' r='1.5' fill='%231e1135'/%3E%3Cpath d='M14 21q2 1.5 4 0' stroke='%231e1135' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --bg-dark: #090713;
+      --bg-night: #0e0a1f;
+      --bg-card: rgba(22, 16, 42, 0.72);
+      --bg-card-border: rgba(244, 114, 182, 0.22);
+      --bg-card-hover: rgba(36, 26, 68, 0.85);
+      
+      --pink-soft: #fca5d5;
+      --pink-glow: #f472b6;
+      --pink-deep: #ec4899;
+      --purple-light: #e9d5ff;
+      --purple-lavender: #c084fc;
+      --purple-deep: #251642;
+      --cyan-glow: #67e8f9;
+      --yellow-warm: #fef08a;
+      --amber-warm: #fed7aa;
+      --cream: #fff5ea;
+      --text-main: #f8f6fc;
+      --text-muted: #b8b0cf;
+      --text-faint: #7a7295;
+
+      --font-main: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Quicksand', var(--font-main);
+      --font-clock: 'Share Tech Mono', monospace;
+
+      --glow-pink: 0 0 20px rgba(244, 114, 182, 0.45);
+      --glow-cyan: 0 0 15px rgba(103, 232, 249, 0.55);
+      --glow-amber: 0 0 18px rgba(254, 215, 170, 0.4);
+      --glow-text: 0 0 12px rgba(244, 114, 182, 0.6), 0 0 32px rgba(192, 132, 252, 0.4);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+
+      --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 0%, #17102e 0%, var(--bg-dark) 80%);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Selection styling */
+    ::selection {
+      background: var(--pink-glow);
+      color: #1a0f2e;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a1f48;
+      border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--pink-glow);
+    }
+
+    /* Accessibility utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--pink-glow);
+      outline-offset: 3px;
+    }
+
+    /* ==========================================================================
+       2. INITIAL LOADER SCREEN
+       ========================================================================== */
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+    }
+
+    #loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-cat {
+      width: 58px;
+      height: 58px;
+      animation: loaderBounce 1.4s ease-in-out infinite alternate;
+      filter: drop-shadow(var(--glow-pink));
+    }
+
+    @keyframes loaderBounce {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-12px) scale(1.05); }
+    }
+
+    .loader-text {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--pink-soft);
+      animation: loaderPulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes loaderPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* ==========================================================================
+       3. BACKGROUND CANVAS & AMBIENCE
+       ========================================================================== */
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Cursor sparkles container */
+    #cursorFx {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .cursor-sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--pink-soft);
+      box-shadow: 0 0 8px var(--pink-glow);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: sparkleFade 0.6s ease-out forwards;
+    }
+
+    @keyframes sparkleFade {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) translateY(-14px); }
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION COMPOSITION
+       ========================================================================== */
+    .hero-container {
+      position: relative;
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 20px 32px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    /* Header Nav */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      position: relative;
+      z-index: 30;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .brand-avatar-wrap {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(244, 114, 182, 0.35), rgba(192, 132, 252, 0.2));
+      border: 1.5px solid rgba(244, 114, 182, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 14px rgba(244, 114, 182, 0.25);
+    }
+
+    .brand-group:hover .brand-avatar-wrap {
+      transform: scale(1.08) rotate(6deg);
+      border-color: var(--pink-glow);
+      box-shadow: var(--glow-pink);
+    }
+
+    .brand-avatar-svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Top Right Lofi Control */
+    .lofi-pill-wrap {
+      position: relative;
+    }
+
+    .lofi-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(28, 20, 52, 0.65);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      user-select: none;
+    }
+
+    .lofi-pill-btn:hover {
+      background: rgba(45, 30, 80, 0.8);
+      border-color: var(--pink-glow);
+      box-shadow: var(--glow-pink);
+      transform: translateY(-2px);
+    }
+
+    .lofi-pill-btn:active {
+      transform: translateY(0);
+    }
+
+    .lofi-pill-btn.playing {
+      border-color: var(--cyan-glow);
+      box-shadow: var(--glow-cyan);
+    }
+
+    .lofi-icon {
+      font-size: 1rem;
+      color: var(--pink-soft);
+    }
+
+    /* Equalizer wave bars */
+    .lofi-equalizer {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 14px;
+    }
+
+    .eq-bar {
+      width: 3px;
+      background: var(--pink-glow);
+      border-radius: 2px;
+      height: 4px;
+      transition: height 0.15s ease;
+    }
+
+    .lofi-pill-btn.playing .eq-bar:nth-child(1) { animation: eqPulse 0.9s infinite ease-in-out; }
+    .lofi-pill-btn.playing .eq-bar:nth-child(2) { animation: eqPulse 1.2s infinite ease-in-out 0.2s; }
+    .lofi-pill-btn.playing .eq-bar:nth-child(3) { animation: eqPulse 0.8s infinite ease-in-out 0.4s; }
+    .lofi-pill-btn.playing .eq-bar:nth-child(4) { animation: eqPulse 1.1s infinite ease-in-out 0.1s; }
+
+    @keyframes eqPulse {
+      0%, 100% { height: 4px; background: var(--pink-glow); }
+      50% { height: 14px; background: var(--cyan-glow); }
+    }
+
+    /* Lofi Popup Panel */
+    .lofi-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 290px;
+      background: rgba(22, 16, 42, 0.92);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), var(--glow-pink);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      animation: panelSlide 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lofi-panel.active {
+      display: flex;
+    }
+
+    @keyframes panelSlide {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lofi-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+
+    .lofi-panel-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink-soft);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lofi-status-badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(244, 114, 182, 0.15);
+      color: var(--pink-soft);
+      border: 1px solid rgba(244, 114, 182, 0.25);
+    }
+
+    .lofi-status-badge.live {
+      background: rgba(103, 232, 249, 0.15);
+      color: var(--cyan-glow);
+      border-color: rgba(103, 232, 249, 0.3);
+    }
+
+    .lofi-source-toggle {
+      display: flex;
+      background: rgba(12, 8, 24, 0.6);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .source-btn {
+      flex: 1;
+      padding: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .source-btn.active {
+      background: rgba(244, 114, 182, 0.25);
+      color: #fff;
+    }
+
+    .lofi-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .lofi-play-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink-glow), var(--purple-lavender));
+      border: none;
+      color: #1a0f2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 14px rgba(244, 114, 182, 0.4);
+    }
+
+    .lofi-play-btn:hover {
+      transform: scale(1.08);
+      box-shadow: var(--glow-pink);
+    }
+
+    .volume-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .volume-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--pink-soft);
+      box-shadow: 0 0 8px var(--pink-glow);
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .volume-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .lofi-footer-note {
+      font-size: 0.72rem;
+      color: var(--text-faint);
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       5. HERO ARTWORK & INTERACTIVE STAGE
+       ========================================================================== */
+    .hero-stage-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 12px auto 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(28, 16, 52, 0.6);
+      background: #0d091b;
+      aspect-ratio: 1024 / 542;
+    }
+
+    /* The visual background artwork */
+    .hero-artwork-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      user-select: none;
+      filter: saturate(1.05) contrast(1.02);
+      transition: filter 0.8s ease;
+    }
+
+    /* Ambient animated lighting overlay */
+    .hero-lighting-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 10% 85%, rgba(254, 215, 170, 0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 85% 75%, rgba(103, 232, 249, 0.06) 0%, transparent 45%),
+                  radial-gradient(circle at 35% 20%, rgba(244, 114, 182, 0.07) 0%, transparent 50%);
+      mix-blend-mode: screen;
+      animation: breathingAmbience 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes breathingAmbience {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    /* Shooting star canvas layer */
+    #skyCanvas {
+      position: absolute;
+      top: 0;
+      left: 20%;
+      width: 60%;
+      height: 60%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Interactive hotspot overlay plane */
+    .hero-interactive-plane {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+    }
+
+    /* Hotspot common styles */
+    .hotspot {
+      position: absolute;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-smooth);
+      outline: none;
+    }
+
+    .hotspot:hover {
+      filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.7));
+    }
+
+    /* Top Left Brand Hotspot */
+    .hotspot-brand {
+      left: 5.8%;
+      top: 3.5%;
+      width: 18%;
+      height: 7.5%;
+      border-radius: var(--radius-full);
+    }
+
+    /* Top Right Lofi Hotspot */
+    .hotspot-lofi {
+      left: 79.3%;
+      top: 4%;
+      width: 12.2%;
+      height: 7%;
+      border-radius: var(--radius-full);
+    }
+
+    /* 4 Primary Action Buttons */
+    .hotspot-btn {
+      top: 61.5%;
+      height: 7.6%;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hotspot-btn:hover {
+      background: rgba(244, 114, 182, 0.15);
+      border-color: rgba(244, 114, 182, 0.6);
+      box-shadow: 0 0 16px rgba(244, 114, 182, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .hotspot-btn:active {
+      transform: translateY(1px);
+    }
+
+    .hotspot-btn-portfolio { left: 9.4%; width: 7.4%; }
+    .hotspot-btn-projects  { left: 17.3%; width: 7%; }
+    .hotspot-btn-blog      { left: 24.8%; width: 5.1%; }
+    .hotspot-btn-more      { left: 30.3%; width: 8.6%; }
+
+    /* Digital Clock Hotspot & Live Time Render */
+    .hotspot-clock {
+      left: 2.3%;
+      top: 85%;
+      width: 13.5%;
+      height: 13%;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .live-clock-face {
+      position: absolute;
+      left: 5.4%;
+      top: 88.5%;
+      width: 8.8%;
+      height: 7.4%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-clock);
+      font-size: clamp(0.75rem, 1.25vw, 1.4rem);
+      font-weight: 700;
+      color: #5eead4;
+      text-shadow: 0 0 8px rgba(94, 234, 212, 0.9), 0 0 16px rgba(45, 212, 191, 0.4);
+      pointer-events: none;
+      letter-spacing: 0.05em;
+    }
+
+    .clock-colon {
+      animation: colonBlink 1s infinite steps(1);
+    }
+
+    @keyframes colonBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* Left Sleeping Kitten */
+    .hotspot-cat-left {
+      left: 16.4%;
+      top: 86.5%;
+      width: 11%;
+      height: 12%;
+      border-radius: 50% 50% 30% 30%;
+    }
+
+    /* Books Stack */
+    .hotspot-books {
+      left: 27.9%;
+      top: 77.8%;
+      width: 14%;
+      height: 20%;
+      border-radius: 8px;
+    }
+
+    /* Hot Mug with Steam */
+    .hotspot-mug {
+      left: 42.9%;
+      top: 85.5%;
+      width: 7%;
+      height: 12.5%;
+      border-radius: 10px;
+    }
+
+    /* Animated CSS Steam over Mug */
+    .mug-steam-wrap {
+      position: absolute;
+      left: 45.5%;
+      top: 82%;
+      width: 20px;
+      height: 25px;
+      pointer-events: none;
+      z-index: 15;
+    }
+
+    .steam-particle {
+      position: absolute;
+      bottom: 0;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 240, 245, 0.5);
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: steamRise 2.8s infinite ease-out;
+    }
+
+    .steam-particle:nth-child(2) {
+      left: 6px;
+      animation-delay: 0.9s;
+      animation-duration: 3.2s;
+    }
+
+    .steam-particle:nth-child(3) {
+      left: 12px;
+      animation-delay: 1.8s;
+      animation-duration: 2.6s;
+    }
+
+    @keyframes steamRise {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      30% { opacity: 0.7; }
+      100% { transform: translateY(-28px) scale(2.2); opacity: 0; }
+    }
+
+    /* Right Sleeping Cat (Next to Girl) */
+    .hotspot-cat-right {
+      left: 64.4%;
+      top: 81%;
+      width: 13.8%;
+      height: 16%;
+      border-radius: 50%;
+    }
+
+    /* Floating Heart Bubble above Cat */
+    .hotspot-heart {
+      left: 68.3%;
+      top: 73.8%;
+      width: 4.5%;
+      height: 8.5%;
+      border-radius: 50%;
+      animation: heartBob 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes heartBob {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-4px) scale(1.08); }
+    }
+
+    /* Laptop Screen */
+    .hotspot-laptop {
+      left: 78.5%;
+      top: 63.5%;
+      width: 19%;
+      height: 35%;
+      border-radius: 12px;
+    }
+
+    /* Hanging Stars */
+    .hotspot-star-1 { left: 30.7%; top: 3.6%; width: 2%; height: 5%; border-radius: 50%; }
+    .hotspot-star-2 { left: 35.1%; top: 4.5%; width: 3%; height: 8.5%; border-radius: 50%; }
+    .hotspot-star-3 { left: 89.8%; top: 18.4%; width: 3%; height: 8.5%; border-radius: 50%; }
+
+    /* Cat Balloon in the Sky */
+    .hotspot-balloon {
+      left: 64.4%;
+      top: 23.8%;
+      width: 7.5%;
+      height: 19.5%;
+      border-radius: 50%;
+      animation: balloonDrift 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes balloonDrift {
+      0% { transform: translateY(0) rotate(-1deg); }
+      100% { transform: translateY(-6px) rotate(2deg); }
+    }
+
+    /* Sticky Note on Wall */
+    .hotspot-note {
+      left: 88.6%;
+      top: 36.8%;
+      width: 9%;
+      height: 24%;
+      border-radius: 6px;
+    }
+
+    /* Interactive Bubble Speech */
+    .speech-bubble-pop {
+      position: absolute;
+      background: rgba(22, 16, 42, 0.95);
+      border: 1px solid var(--pink-glow);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), var(--glow-pink);
+      pointer-events: none;
+      z-index: 50;
+      white-space: nowrap;
+      animation: bubblePopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1), bubbleFadeOut 0.4s ease 2.2s forwards;
+      transform-origin: bottom center;
+    }
+
+    @keyframes bubblePopIn {
+      0% { opacity: 0; transform: translateY(10px) scale(0.8); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes bubbleFadeOut {
+      to { opacity: 0; transform: translateY(-6px) scale(0.9); }
+    }
+
+    /* Bottom Scroll Indicator inside Hero */
+    .hero-scroll-prompt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin: 16px auto 0;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      user-select: none;
+    }
+
+    .hero-scroll-prompt:hover {
+      color: var(--pink-soft);
+      transform: translateY(2px);
+    }
+
+    .mouse-scroll-icon {
+      width: 20px;
+      height: 32px;
+      border: 2px solid rgba(244, 114, 182, 0.5);
+      border-radius: 12px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mouse-scroll-wheel {
+      width: 3px;
+      height: 6px;
+      background: var(--pink-glow);
+      border-radius: 2px;
+      margin-top: 6px;
+      animation: wheelRoll 1.6s infinite ease-in-out;
+    }
+
+    @keyframes wheelRoll {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(12px); opacity: 0; }
+    }
+
+    /* ==========================================================================
+       6. SECTION 2: "CURRENTLY COOKING..."
+       ========================================================================== */
+    .magic-section {
+      width: 100%;
+      max-width: 1200px;
+      margin: 60px auto 40px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(244, 114, 182, 0.12);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      color: var(--pink-soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 24px rgba(244, 114, 182, 0.3);
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Cards Grid */
+    .cooking-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-bottom: 48px;
+    }
+
+    .magic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .magic-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(244, 114, 182, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .magic-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--pink-glow);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4), var(--glow-pink);
+    }
+
+    .magic-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(244, 114, 182, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--pink-soft);
+      border: 1px solid rgba(244, 114, 182, 0.25);
+    }
+
+    .card-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(103, 232, 249, 0.15);
+      color: var(--cyan-glow);
+      border: 1px solid rgba(103, 232, 249, 0.3);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .card-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .card-progress-wrap {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-faint);
+    }
+
+    .progress-bar-bg {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--pink-glow), var(--cyan-glow));
+      transition: width 1s ease-out;
+    }
+
+    /* Interactive Quote & VIP subscription row */
+    .magic-interactive-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 860px) {
+      .magic-interactive-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cute Microcopy Quote Card */
+    .quote-box {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .quote-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quote-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--pink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .quote-btn {
+      background: rgba(244, 114, 182, 0.15);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      color: var(--pink-soft);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .quote-btn:hover {
+      background: var(--pink-glow);
+      color: #1a0f2e;
+      box-shadow: var(--glow-pink);
+    }
+
+    .quote-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--cream);
+      font-style: italic;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      transition: opacity 0.2s ease;
+    }
+
+    /* VIP Notification Box */
+    .notify-box {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .notify-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .notify-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .notify-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .notify-input {
+      flex: 1;
+      background: rgba(14, 10, 26, 0.7);
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      border-radius: var(--radius-full);
+      padding: 10px 18px;
+      color: #fff;
+      font-family: var(--font-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .notify-input:focus {
+      border-color: var(--pink-glow);
+      box-shadow: 0 0 12px rgba(244, 114, 182, 0.3);
+    }
+
+    .notify-btn {
+      background: linear-gradient(135deg, var(--pink-glow), var(--purple-lavender));
+      border: none;
+      color: #1a0f2e;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 14px rgba(244, 114, 182, 0.35);
+      white-space: nowrap;
+    }
+
+    .notify-btn:hover {
+      transform: scale(1.04);
+      box-shadow: var(--glow-pink);
+    }
+
+    .notify-feedback {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cyan-glow);
+      min-height: 18px;
+    }
+
+    /* ==========================================================================
+       7. FOOTER
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 32px 24px 48px;
+      text-align: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--pink-soft);
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: var(--text-faint);
+    }
+
+    .footer-shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .kbd-chip {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: var(--pink-soft);
+    }
+
+    /* ==========================================================================
+       8. MODAL DIALOGS (PORTFOLIO, LAPTOP, BOOKS, TODO, ETC.)
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 5, 14, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: rgba(23, 16, 44, 0.95);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 480px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), var(--glow-pink);
+      position: relative;
+      transform: scale(0.92) translateY(12px);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-backdrop.active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close-btn:hover {
+      background: var(--pink-glow);
+      color: #1a0f2e;
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .modal-icon {
+      font-size: 1.8rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .modal-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    /* Terminal Style in Laptop Modal */
+    .terminal-box {
+      background: #0d0918;
+      border: 1px solid rgba(103, 232, 249, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--cyan-glow);
+      margin: 12px 0;
+      line-height: 1.5;
+    }
+
+    .term-line { margin-bottom: 4px; }
+    .term-dim { color: var(--text-faint); }
+    .term-pink { color: var(--pink-soft); }
+
+    /* Interactive To-Do List */
+    .todo-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--cream);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .todo-item input[type="checkbox"] {
+      accent-color: var(--pink-glow);
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       9. RESPONSIVE OPTIMIZATIONS
+       ========================================================================== */
+    @media (max-width: 900px) {
+      .hero-container {
+        padding: 12px 14px 24px;
+      }
+      .site-header {
+        padding: 8px 6px;
+      }
+      .brand-name {
+        font-size: 1.1rem;
+      }
+      .brand-tagline {
+        font-size: 0.72rem;
+      }
+      .magic-section {
+        margin: 40px auto 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-container {
+        min-height: auto;
+      }
+      .hero-stage-wrapper {
+        border-radius: var(--radius-md);
+      }
+      .cooking-grid {
+        grid-template-columns: 1fr;
+      }
+      .lofi-panel {
+        width: 270px;
+        right: -10px;
+      }
+      .notify-form {
+        flex-direction: column;
+      }
+    }
+
+    /* Accessibility: Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      #particleCanvas, #skyCanvas {
+        display: none !important;
+      }
+      .loader-cat {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       INITIAL LOADING SCREEN
+       ========================================================================== -->
+  <div id="loader" aria-hidden="false">
+    <svg class="loader-cat" viewBox="0 0 32 32" fill="none">
+      <path fill="#fca5d5" d="M6 6l6 6h8l6-6v14a10 10 0 0 1-20 0V6z"/>
+      <polygon fill="#f472b6" points="6,6 10,12 6,12"/>
+      <polygon fill="#f472b6" points="26,6 22,12 26,12"/>
+      <circle cx="11" cy="18" r="1.5" fill="#1e1135"/>
+      <circle cx="21" cy="18" r="1.5" fill="#1e1135"/>
+      <path d="M14 21q2 1.5 4 0" stroke="#1e1135" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="loader-text">preparing something special... :3</div>
+  </div>
+
+  <!-- Ambient Particle Canvas -->
+  <canvas id="particleCanvas"></canvas>
+  <div id="cursorFx"></div>
+
+  <!-- Audio Element for Online Lofi Radio -->
+  <audio id="lofiAudio" preload="none" crossorigin="anonymous"></audio>
+
+  <!-- ==========================================================================
+       MAIN HERO SECTION
+       ========================================================================== -->
+  <header class="hero-container">
+    <!-- Header Top Navigation -->
+    <div class="site-header">
+      <a href="#hero" class="brand-group" aria-label="Rachelian Home">
+        <div class="brand-avatar-wrap">
+          <svg class="brand-avatar-svg" viewBox="0 0 32 32" fill="none">
+            <path fill="#fca5d5" d="M6 6l6 6h8l6-6v14a10 10 0 0 1-20 0V6z"/>
+            <polygon fill="#f472b6" points="6,6 10,12 6,12"/>
+            <polygon fill="#f472b6" points="26,6 22,12 26,12"/>
+            <circle cx="11" cy="18" r="1.5" fill="#1e1135"/>
+            <circle cx="21" cy="18" r="1.5" fill="#1e1135"/>
+            <path d="M14 21q2 1.5 4 0" stroke="#1e1135" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-name">rachelian</span>
+          <span class="brand-tagline">building something special...</span>
+        </div>
+      </a>
+
+      <!-- Lofi Player Control Pill -->
+      <div class="lofi-pill-wrap">
+        <button id="lofiPillBtn" class="lofi-pill-btn" aria-label="Toggle Lofi Music Mode" aria-expanded="false">
+          <span class="lofi-icon">♫</span>
+          <span>Lofi Mode</span>
+          <div class="lofi-equalizer" aria-hidden="true">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+          </div>
+        </button>
+
+        <!-- Lofi Dropdown Control Panel -->
+        <div id="lofiPanel" class="lofi-panel" role="region" aria-label="Lofi Music Controller">
+          <div class="lofi-panel-header">
+            <div class="lofi-panel-title">
+              <span>☕</span> Cozy Radio
+            </div>
+            <span id="lofiStatusBadge" class="lofi-status-badge">Ready</span>
+          </div>
+
+          <div class="lofi-source-toggle">
+            <button id="srcSynthBtn" class="source-btn active" title="Generative procedural lofi music (100% offline)">Dream Synth</button>
+            <button id="srcStreamBtn" class="source-btn" title="Live SomaFM Groove Salad stream">Live Radio</button>
+          </div>
+
+          <div class="lofi-controls-row">
+            <button id="lofiPlayToggle" class="lofi-play-btn" aria-label="Play or Pause music">
+              <span id="playIcon">▶</span>
+            </button>
+            <div class="volume-wrap">
+              <span style="font-size: 0.8rem; color: var(--text-muted)">🔈</span>
+              <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.75" aria-label="Volume">
+              <span style="font-size: 0.8rem; color: var(--text-muted)">🔊</span>
+            </div>
+          </div>
+
+          <div class="lofi-footer-note" id="lofiNote">
+            Generative pentatonic chords &amp; soft vinyl crackle
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Cozy Visual Stage & Interactive Canvas -->
+    <main id="hero" class="hero-stage-wrapper" role="region" aria-label="Cozy developer room interactive scene">
+      <!-- High-res Visual Artwork Backdrop -->
+      <img src="./assets/scene.webp" alt="Cozy developer room at night with an anime girl sleeping on desk, two kittens, glowing laptop, steaming mug, books, and city skyline through the window" class="hero-artwork-img" loading="eager">
+      
+      <!-- Subtle Lighting and Shooting Star Canvas -->
+      <div class="hero-lighting-overlay"></div>
+      <canvas id="skyCanvas"></canvas>
+
+      <!-- Live Rising Steam Particles above Mug -->
+      <div class="mug-steam-wrap" aria-hidden="true">
+        <div class="steam-particle"></div>
+        <div class="steam-particle"></div>
+        <div class="steam-particle"></div>
+      </div>
+
+      <!-- Real-time Synchronized Digital Desk Clock -->
+      <div class="live-clock-face" aria-live="off" title="Current local time">
+        <span id="clockHour">00</span><span class="clock-colon">:</span><span id="clockMin">00</span>
+      </div>
+
+      <!-- Accessible Semantic H1 for Search Engines and Screen Readers -->
+      <h1 class="sr-only">Coming Very Soon :3 — Rachelian is building something special!</h1>
+      <p class="sr-only">Something cute and amazing is on the way! I'm currently working hard to bring you a new experience. Stay tuned — it'll be worth the wait!</p>
+
+      <!-- Interactive Hotspots Plane -->
+      <div class="hero-interactive-plane" id="hotspotPlane">
+        <!-- Brand & Lofi Mirror Targets -->
+        <button class="hotspot hotspot-brand" data-action="brand" aria-label="Rachelian avatar"></button>
+        <button class="hotspot hotspot-lofi" data-action="lofi-toggle" aria-label="Toggle Lofi"></button>
+
+        <!-- 4 Primary Action Buttons -->
+        <button class="hotspot hotspot-btn hotspot-btn-portfolio" data-modal="portfolioModal" aria-label="Open Portfolio Preview">
+          <span class="sr-only">Portfolio</span>
+        </button>
+        <button class="hotspot hotspot-btn hotspot-btn-projects" data-modal="projectsModal" aria-label="Open Projects Status">
+          <span class="sr-only">Projects</span>
+        </button>
+        <button class="hotspot hotspot-btn hotspot-btn-blog" data-modal="blogModal" aria-label="Open Blog Preview">
+          <span class="sr-only">Blog</span>
+        </button>
+        <button class="hotspot hotspot-btn hotspot-btn-more" data-modal="moreModal" aria-label="Open More Surprises">
+          <span class="sr-only">And more...</span>
+        </button>
+
+        <!-- Objects in the Room -->
+        <button class="hotspot hotspot-clock" data-action="clock" aria-label="Digital desk clock showing live time"></button>
+        <button class="hotspot hotspot-cat-left" data-action="cat-left" aria-label="Pet the sleeping kitten"></button>
+        <button class="hotspot hotspot-books" data-modal="booksModal" aria-label="Examine stack of books"></button>
+        <button class="hotspot hotspot-mug" data-action="mug" aria-label="Sip warm latte"></button>
+        <button class="hotspot hotspot-cat-right" data-action="cat-right" aria-label="Pet the cozy cat next to Rachelian"></button>
+        <button class="hotspot hotspot-heart" data-action="cat-right" aria-label="Floating heart"></button>
+        <button class="hotspot hotspot-laptop" data-modal="laptopModal" aria-label="Look at laptop screen"></button>
+        <button class="hotspot hotspot-star-1" data-action="star" aria-label="Hanging star"></button>
+        <button class="hotspot hotspot-star-2" data-action="star" aria-label="Hanging star"></button>
+        <button class="hotspot hotspot-star-3" data-action="star" aria-label="Hanging star"></button>
+        <button class="hotspot hotspot-balloon" data-action="balloon" aria-label="Floating cat balloon outside window"></button>
+        <button class="hotspot hotspot-note" data-modal="todoModal" aria-label="Read To-Do Note"></button>
+      </div>
+    </main>
+
+    <!-- Scroll prompt at bottom of hero -->
+    <a href="#cookingSection" class="hero-scroll-prompt" aria-label="Scroll down to explore what is being built">
+      <span>Scroll for a little magic</span>
+      <div class="mouse-scroll-icon" aria-hidden="true">
+        <div class="mouse-scroll-wheel"></div>
+      </div>
+    </a>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 2: "CURRENTLY COOKING..."
+       ========================================================================== -->
+  <section id="cookingSection" class="magic-section">
+    <div class="section-header">
+      <div class="section-tag">✦ Behind The Scenes ✦</div>
+      <h2 class="section-title">Currently Cooking...</h2>
+      <p class="section-desc">Here's a warm sneak peek at the ingredients being carefully assembled for the upcoming launch.</p>
+    </div>
+
+    <!-- 4 Work-in-Progress Pillars -->
+    <div class="cooking-grid">
+      <!-- Card 1: Design -->
+      <article class="magic-card">
+        <div class="card-top">
+          <div class="card-icon">🎨</div>
+          <span class="card-badge">Aesthetics</span>
+        </div>
+        <div>
+          <h3 class="card-title">Design</h3>
+          <p class="card-text">Cozy palettes, handcrafted micro-interactions, responsive typography, and dreamy aesthetics designed to feel like home.</p>
+        </div>
+        <div class="card-progress-wrap">
+          <div class="progress-labels">
+            <span>Interface Polish</span>
+            <span>92%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 92%"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Code -->
+      <article class="magic-card">
+        <div class="card-top">
+          <div class="card-icon">💻</div>
+          <span class="card-badge">Engineering</span>
+        </div>
+        <div>
+          <h3 class="card-title">Code</h3>
+          <p class="card-text">Ultra-lightweight vanilla web engineering with zero bloat, accessible semantic markup, and sub-second load times.</p>
+        </div>
+        <div class="card-progress-wrap">
+          <div class="progress-labels">
+            <span>Compiling Dreams</span>
+            <span>88%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 88%"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Systems -->
+      <article class="magic-card">
+        <div class="card-top">
+          <div class="card-icon">🔮</div>
+          <span class="card-badge">Infrastructure</span>
+        </div>
+        <div>
+          <h3 class="card-title">Systems</h3>
+          <p class="card-text">Global edge distribution via Cloudflare Pages, bulletproof security headers, and zero server maintenance headaches.</p>
+        </div>
+        <div class="card-progress-wrap">
+          <div class="progress-labels">
+            <span>Edge Distribution</span>
+            <span>95%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 95%"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Creative -->
+      <article class="magic-card">
+        <div class="card-top">
+          <div class="card-icon">✨</div>
+          <span class="card-badge">Interactive</span>
+        </div>
+        <div>
+          <h3 class="card-title">Creative</h3>
+          <p class="card-text">Interactive canvas toys, procedural soundscapes, secret easter eggs, and playful digital experiences waiting to be found.</p>
+        </div>
+        <div class="card-progress-wrap">
+          <div class="progress-labels">
+            <span>Magic &amp; Joy</span>
+            <span>99%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 99%"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Quote Roller & VIP Subscription Row -->
+    <div class="magic-interactive-row">
+      <!-- Microcopy Quote Box -->
+      <div class="quote-box">
+        <div class="quote-header">
+          <span class="quote-label">Daily Cozy Thought</span>
+          <button id="nextQuoteBtn" class="quote-btn" aria-label="Get another cute quote">Another thought ✦</button>
+        </div>
+        <blockquote id="quoteDisplay" class="quote-text">
+          "good things take time ♡"
+        </blockquote>
+        <div style="font-size: 0.78rem; color: var(--text-faint)">
+          Click the button above to cycle through cozy thoughts.
+        </div>
+      </div>
+
+      <!-- VIP Club Subscription -->
+      <div class="notify-box">
+        <h3 class="notify-title">Join the Cozy VIP List :3</h3>
+        <p class="notify-desc">Be the first to know when the curtains open. No spam, only sweet updates.</p>
+        <form id="notifyForm" class="notify-form">
+          <input type="email" id="notifyEmail" class="notify-input" placeholder="youremail@example.com" required aria-label="Email address">
+          <button type="submit" class="notify-btn">Keep Me Posted ♡</button>
+        </form>
+        <div id="notifyFeedback" class="notify-feedback" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">rachelian — handcrafted with love &amp; lots of tea ♡</div>
+      <div class="footer-shortcuts">
+        <span>Quick keys:</span>
+        <span><span class="kbd-chip">Space</span> Toggle Lofi</span>
+        <span><span class="kbd-chip">M</span> Mute</span>
+        <span><span class="kbd-chip">C</span> Pet the Cat</span>
+        <span><span class="kbd-chip">Esc</span> Close Windows</span>
+      </div>
+      <p class="footer-text">
+        Ready for deployment on Cloudflare Pages · 100% Static &amp; Framework-Free · Fast, Accessible &amp; Lightweight
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL POPUPS
+       ========================================================================== -->
+
+  <!-- 1. Portfolio Modal -->
+  <div id="portfolioModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="portfolioTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-icon">🌸</span>
+        <h3 id="portfolioTitle" class="modal-title">Portfolio In The Works</h3>
+      </div>
+      <div class="modal-body">
+        <p>A curated collection of past experiments, design systems, and frontend creations is being gathered with lots of love.</p>
+        <br>
+        <p>Expect interactive case studies, whimsical UI widgets, and open-source explorations once we go live!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Projects Modal -->
+  <div id="projectsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="projectsTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-icon">💻</span>
+        <h3 id="projectsTitle" class="modal-title">Ongoing Projects</h3>
+      </div>
+      <div class="modal-body">
+        <div class="terminal-box">
+          <div class="term-line"><span class="term-pink">rachelian@cozy-room</span>:<span class="term-dim">~</span>$ git status</div>
+          <div class="term-line">On branch main</div>
+          <div class="term-line">Changes to be committed:</div>
+          <div class="term-line" style="color: #4ade80">&nbsp;&nbsp;+ secret-project-alpha.ts</div>
+          <div class="term-line" style="color: #4ade80">&nbsp;&nbsp;+ delightful-canvas-toy.js</div>
+          <div class="term-line"><span class="term-pink">Status</span>: Compiling with 0 errors!</div>
+        </div>
+        <p>Exciting tools and creative playgrounds are currently compiling in the background :3</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Blog Modal -->
+  <div id="blogModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="blogTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-icon">📝</span>
+        <h3 id="blogTitle" class="modal-title">Rachelian's Notebook</h3>
+      </div>
+      <div class="modal-body">
+        <p>Drafting upcoming write-ups on:</p>
+        <ul style="margin: 12px 0 12px 20px; color: var(--cream)">
+          <li>✦ Designing cozy, non-corporate web experiences</li>
+          <li>✦ Zero-framework interactive audio in modern browsers</li>
+          <li>✦ The art of taking warm tea breaks while debugging</li>
+        </ul>
+        <p>First article lands right along with the full site!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. And More Modal -->
+  <div id="moreModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="moreTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-icon">✨</span>
+        <h3 id="moreTitle" class="modal-title">Surprise Room!</h3>
+      </div>
+      <div class="modal-body">
+        <p>You found one of the secret corners! Here are a few little hidden treats on this page:</p>
+        <ul style="margin: 12px 0 12px 20px; color: var(--cream)">
+          <li>✦ Click both cats to hear them purr and meow</li>
+          <li>✦ Click the clock to check your real local time</li>
+          <li>✦ Click the mug for extra hot steam</li>
+          <li>✦ Click the hanging stars for star chimes</li>
+          <li>✦ Try the keyboard shortcuts (<span class="kbd-chip">Space</span>, <span class="kbd-chip">C</span>)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Laptop Modal -->
+  <div id="laptopModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="laptopTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-icon">🐱</span>
+        <h3 id="laptopTitle" class="modal-title">Rachelian's Laptop</h3>
+      </div>
+      <div class="modal-body">
+        <div class="terminal-box">
+          <div class="term-line"><span class="term-pink">DEVICE</span>: MacBook Pro (Cozy Edition)</div>
+          <div class="term-line"><span class="term-pink">UPTIME</span>: 42 hours (needs sleep soon :3)</div>
+          <div class="term-line"><span class="term-pink">STATUS</span>: Still cooking...</div>
+          <div class="term-line"><span class="term-pink">CAFFEINE</span>: ☕☕☕ (Latte with marshmallows)</div>
+          <div class="term-line"><span class="term-pink">BUGS FIXED</span>: 99 / 100</div>
+        </div>
+        <p>"Please do not close the lid, the code is thinking warmly..." ♡</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Books Modal -->
+  <div id="booksModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="booksTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-icon">📚</span>
+        <h3 id="booksTitle" class="modal-title">Desk Bookshelf</h3>
+      </div>
+      <div class="modal-body">
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li style="border-left: 3px solid var(--cyan-glow); padding-left: 10px;">
+            <strong style="color: #fff">Ideas:</strong> A sketchbook filled with late-night inspirations and dreams.
+          </li>
+          <li style="border-left: 3px solid var(--pink-glow); padding-left: 10px;">
+            <strong style="color: #fff">Code:</strong> The gentle art of writing clean, fast, beautiful software.
+          </li>
+          <li style="border-left: 3px solid var(--purple-lavender); padding-left: 10px;">
+            <strong style="color: #fff">Design:</strong> Principles of human warmth in digital interfaces.
+          </li>
+          <li style="border-left: 3px solid var(--amber-warm); padding-left: 10px;">
+            <strong style="color: #fff">Better Me ♡:</strong> Daily reflections on balance, kindness, and continuous growth.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. To-Do Note Modal -->
+  <div id="todoModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="todoTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-icon">📌</span>
+        <h3 id="todoTitle" class="modal-title">To Do (Later)</h3>
+      </div>
+      <div class="modal-body">
+        <p>Interactive corkboard note (changes are saved to your browser):</p>
+        <ul class="todo-list" id="todoList">
+          <li class="todo-item"><input type="checkbox" id="todo1" checked><label for="todo1">Be happy</label></li>
+          <li class="todo-item"><input type="checkbox" id="todo2" checked><label for="todo2">Keep creating</label></li>
+          <li class="todo-item"><input type="checkbox" id="todo3" checked><label for="todo3">See you soon ♡</label></li>
+          <li class="todo-item"><input type="checkbox" id="todo4"><label for="todo4">Drink some warm water</label></li>
+          <li class="todo-item"><input type="checkbox" id="todo5"><label for="todo5">Pet the cat again :3</label></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: ENGINE & INTERACTIONS
+       ========================================================================== -->
+  <script>
+    /* ========================================================================
+       1. CORE INITIALIZATION & LOADER
+       ======================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      // Hide loader after smooth perceived transition (~450ms)
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        if (loader) {
+          loader.classList.add('hidden');
+        }
+      }, 450);
+
+      initLiveClock();
+      initParticles();
+      initSkyCanvas();
+      initAudioEngine();
+      initHotspots();
+      initModals();
+      initQuoteRoller();
+      initVIPForm();
+      initCursorSparkles();
+      initKeyboardShortcuts();
+      initSavedTodos();
+    });
+
+    /* ========================================================================
+       2. REAL-TIME DIGITAL DESK CLOCK
+       ======================================================================== */
+    function initLiveClock() {
+      const hourEl = document.getElementById('clockHour');
+      const minEl = document.getElementById('clockMin');
+      if (!hourEl || !minEl) return;
+
+      function updateClock() {
+        const now = new Date();
+        const hrs = String(now.getHours()).padStart(2, '0');
+        const mins = String(now.getMinutes()).padStart(2, '0');
+        hourEl.textContent = hrs;
+        minEl.textContent = mins;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    }
+
+    /* ========================================================================
+       3. AMBIENT PARTICLE CANVAS (SAKURA PETALS & DUST)
+       ======================================================================== */
+    function initParticles() {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      // Check prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      // Particle definition
+      const particleCount = width < 768 ? 24 : 50;
+      const particles = [];
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 3.5 + 1.5,
+          speedX: Math.random() * 0.5 - 0.25 + 0.3, // slight breeze to the right
+          speedY: Math.random() * 0.7 + 0.3,       // gently falling
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 1.5,
+          opacity: Math.random() * 0.55 + 0.25,
+          type: Math.random() > 0.45 ? 'petal' : 'star'
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.globalAlpha = p.opacity;
+
+          if (p.type === 'petal') {
+            // Sakura petal shape
+            ctx.fillStyle = '#fca5d5';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, p.size * 2, p.size, 0, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            // Star dust sparkle
+            ctx.fillStyle = '#fef08a';
+            ctx.beginPath();
+            ctx.arc(0, 0, p.size * 0.7, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          ctx.restore();
+
+          // Update physics
+          p.x += p.speedX;
+          p.y += p.speedY;
+          p.rotation += p.rotationSpeed;
+
+          // Wrap edges
+          if (p.y > height + 10) {
+            p.y = -10;
+            p.x = Math.random() * width;
+          }
+          if (p.x > width + 10) {
+            p.x = -10;
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    /* ========================================================================
+       4. WINDOW SKY SHOOTING STAR CANVAS
+       ======================================================================== */
+    function initSkyCanvas() {
+      const canvas = document.getElementById('skyCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      let width = (canvas.width = canvas.offsetWidth);
+      let height = (canvas.height = canvas.offsetHeight);
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      });
+
+      let shootingStar = null;
+
+      function spawnShootingStar() {
+        shootingStar = {
+          x: Math.random() * (width * 0.7) + width * 0.2,
+          y: Math.random() * (height * 0.3),
+          len: Math.random() * 80 + 60,
+          speed: Math.random() * 8 + 12,
+          angle: (Math.PI / 4) + (Math.random() - 0.5) * 0.2,
+          opacity: 1
+        };
+      }
+
+      // Spawn every 10 to 18 seconds
+      function scheduleNextStar() {
+        const delay = Math.random() * 8000 + 10000;
+        setTimeout(() => {
+          spawnShootingStar();
+          scheduleNextStar();
+        }, delay);
+      }
+      scheduleNextStar();
+
+      function drawSky() {
+        ctx.clearRect(0, 0, width, height);
+
+        if (shootingStar) {
+          const tailX = shootingStar.x - Math.cos(shootingStar.angle) * shootingStar.len;
+          const tailY = shootingStar.y - Math.sin(shootingStar.angle) * shootingStar.len;
+
+          const grad = ctx.createLinearGradient(shootingStar.x, shootingStar.y, tailX, tailY);
+          grad.addColorStop(0, `rgba(255, 255, 255, ${shootingStar.opacity})`);
+          grad.addColorStop(0.3, `rgba(244, 114, 182, ${shootingStar.opacity * 0.7})`);
+          grad.addColorStop(1, 'rgba(192, 132, 252, 0)');
+
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(shootingStar.x, shootingStar.y);
+          ctx.lineTo(tailX, tailY);
+          ctx.stroke();
+
+          // Move
+          shootingStar.x += Math.cos(shootingStar.angle) * shootingStar.speed;
+          shootingStar.y += Math.sin(shootingStar.angle) * shootingStar.speed;
+          shootingStar.opacity -= 0.02;
+
+          if (shootingStar.opacity <= 0 || shootingStar.x > width || shootingStar.y > height) {
+            shootingStar = null;
+          }
+        }
+
+        requestAnimationFrame(drawSky);
+      }
+      requestAnimationFrame(drawSky);
+    }
+
+    /* ========================================================================
+       5. DUAL-MODE LO-FI AUDIO ENGINE (SYNTH + STREAM) & SOUND SYNTHESIS
+       ======================================================================== */
+    let audioCtx = null;
+    let sfxGainNode = null;
+    let synthInterval = null;
+    let isSynthPlaying = false;
+    let isStreamPlaying = false;
+    let currentMode = 'synth'; // 'synth' or 'stream'
+
+    // Verified legal public SomaFM Groove Salad stream (HTTPS, commercial-free, CORS *)
+    const LOFI_STREAM_URL = 'https://ice1.somafm.com/groovesalad-128-mp3';
+
+    function ensureAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContextClass();
+
+        sfxGainNode = audioCtx.createGain();
+        sfxGainNode.gain.setValueAtTime(0.4, audioCtx.currentTime);
+        sfxGainNode.connect(audioCtx.destination);
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    // Procedural Lo-Fi Sound Effects
+    function playCutePurr() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'triangle';
+      // Purr / meow pitch glide
+      const now = audioCtx.currentTime;
+      osc.frequency.setValueAtTime(440, now);
+      osc.frequency.exponentialRampToValueAtTime(580, now + 0.15);
+      osc.frequency.exponentialRampToValueAtTime(320, now + 0.45);
+
+      gain.gain.setValueAtTime(0.01, now);
+      gain.gain.linearRampToValueAtTime(0.3, now + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+      osc.connect(gain);
+      gain.connect(sfxGainNode || audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.46);
+    }
+
+    function playStarChime() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+
+      const notes = [1046.5, 1318.5, 1567.9, 2093.0]; // C6, E6, G6, C7
+      notes.forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        const now = audioCtx.currentTime + idx * 0.06;
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
+
+        osc.connect(gain);
+        gain.connect(sfxGainNode || audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.62);
+      });
+    }
+
+    function playSoftPop() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const now = audioCtx.currentTime;
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(220, now + 0.08);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+      osc.connect(gain);
+      gain.connect(sfxGainNode || audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.09);
+    }
+
+    // Procedural Ambient Lo-Fi Synth Generator
+    let synthMasterGain = null;
+    function startDreamSynth() {
+      ensureAudioContext();
+      if (isSynthPlaying) return;
+      isSynthPlaying = true;
+
+      synthMasterGain = audioCtx.createGain();
+      const slider = document.getElementById('volumeSlider');
+      synthMasterGain.gain.setValueAtTime(slider ? parseFloat(slider.value) * 0.35 : 0.25, audioCtx.currentTime);
+      synthMasterGain.connect(audioCtx.destination);
+
+      // Pentatonic warm chord voicings
+      const chordProgression = [
+        [155.56, 196.00, 233.08, 311.13, 392.00], // Ebmaj7
+        [130.81, 155.56, 196.00, 261.63, 311.13], // Cm7
+        [174.61, 207.65, 261.63, 349.23, 415.30], // Fm7
+        [116.54, 174.61, 207.65, 261.63, 349.23]  // Bb7sus
+      ];
+
+      let chordIndex = 0;
+
+      function playChord(chord) {
+        if (!isSynthPlaying || !audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        chord.forEach((freq, i) => {
+          const osc = audioCtx.createOscillator();
+          const filter = audioCtx.createBiquadFilter();
+          const gain = audioCtx.createGain();
+
+          osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+          osc.frequency.setValueAtTime(freq, now);
+
+          // Warm lowpass filter to emulate vintage electric piano
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(680, now);
+          filter.Q.setValueAtTime(1.5, now);
+
+          // Soft attack and prolonged decay
+          gain.gain.setValueAtTime(0.001, now + (i * 0.04));
+          gain.gain.linearRampToValueAtTime(0.12, now + (i * 0.04) + 0.6);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 4.8);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(synthMasterGain);
+
+          osc.start(now + (i * 0.04));
+          osc.stop(now + 4.9);
+        });
+      }
+
+      playChord(chordProgression[0]);
+      synthInterval = setInterval(() => {
+        chordIndex = (chordIndex + 1) % chordProgression.length;
+        playChord(chordProgression[chordIndex]);
+      }, 4500);
+    }
+
+    function stopDreamSynth() {
+      isSynthPlaying = false;
+      if (synthInterval) {
+        clearInterval(synthInterval);
+        synthInterval = null;
+      }
+      if (synthMasterGain && audioCtx) {
+        synthMasterGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
+      }
+    }
+
+    // Initialize Audio UI Controls
+    function initAudioEngine() {
+      const lofiPillBtn = document.getElementById('lofiPillBtn');
+      const lofiPanel = document.getElementById('lofiPanel');
+      const lofiPlayToggle = document.getElementById('lofiPlayToggle');
+      const playIcon = document.getElementById('playIcon');
+      const lofiStatusBadge = document.getElementById('lofiStatusBadge');
+      const srcSynthBtn = document.getElementById('srcSynthBtn');
+      const srcStreamBtn = document.getElementById('srcStreamBtn');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const lofiNote = document.getElementById('lofiNote');
+      const audioEl = document.getElementById('lofiAudio');
+
+      if (!lofiPillBtn || !lofiPanel) return;
+
+      // Toggle dropdown panel
+      lofiPillBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = lofiPanel.classList.toggle('active');
+        lofiPillBtn.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!lofiPanel.contains(e.target) && !lofiPillBtn.contains(e.target)) {
+          lofiPanel.classList.remove('active');
+          lofiPillBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Switch Source: Dream Synth
+      srcSynthBtn.addEventListener('click', () => {
+        if (currentMode === 'synth') return;
+        currentMode = 'synth';
+        srcSynthBtn.classList.add('active');
+        srcStreamBtn.classList.remove('active');
+        lofiNote.textContent = 'Generative pentatonic chords & soft vinyl crackle';
+
+        if (isStreamPlaying) {
+          audioEl.pause();
+          isStreamPlaying = false;
+          startDreamSynth();
+          updateAudioUI(true);
+        }
+      });
+
+      // Switch Source: Live Radio Stream
+      srcStreamBtn.addEventListener('click', () => {
+        if (currentMode === 'stream') return;
+        currentMode = 'stream';
+        srcStreamBtn.classList.add('active');
+        srcSynthBtn.classList.remove('active');
+        lofiNote.textContent = 'Live SomaFM Groove Salad (Ambient Chill)';
+
+        if (isSynthPlaying) {
+          stopDreamSynth();
+          playStreamAudio();
+        }
+      });
+
+      // Play / Pause Master Toggle
+      function toggleAudio() {
+        ensureAudioContext();
+
+        if (currentMode === 'synth') {
+          if (isSynthPlaying) {
+            stopDreamSynth();
+            updateAudioUI(false);
+          } else {
+            startDreamSynth();
+            updateAudioUI(true);
+          }
+        } else {
+          if (isStreamPlaying) {
+            audioEl.pause();
+            isStreamPlaying = false;
+            updateAudioUI(false);
+          } else {
+            playStreamAudio();
+          }
+        }
+      }
+
+      function playStreamAudio() {
+        lofiStatusBadge.textContent = 'Connecting...';
+        audioEl.src = LOFI_STREAM_URL;
+        audioEl.volume = volumeSlider ? parseFloat(volumeSlider.value) : 0.75;
+        
+        audioEl.play()
+          .then(() => {
+            isStreamPlaying = true;
+            updateAudioUI(true);
+          })
+          .catch((err) => {
+            console.warn('Audio stream connection issue:', err);
+            lofiStatusBadge.textContent = 'Taking a nap :3';
+            lofiNote.innerHTML = 'Radio stream unavailable. <a href="#" id="fallbackLink" style="color:var(--pink-soft)">Switch to Dream Synth</a>';
+            updateAudioUI(false);
+
+            const fallbackLink = document.getElementById('fallbackLink');
+            if (fallbackLink) {
+              fallbackLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                srcSynthBtn.click();
+                toggleAudio();
+              });
+            }
+          });
+      }
+
+      function updateAudioUI(isPlaying) {
+        if (isPlaying) {
+          lofiPillBtn.classList.add('playing');
+          playIcon.textContent = '❚❚';
+          lofiStatusBadge.textContent = currentMode === 'synth' ? 'Dreaming' : 'Live';
+          lofiStatusBadge.classList.add('live');
+        } else {
+          lofiPillBtn.classList.remove('playing');
+          playIcon.textContent = '▶';
+          lofiStatusBadge.textContent = 'Paused';
+          lofiStatusBadge.classList.remove('live');
+        }
+      }
+
+      lofiPlayToggle.addEventListener('click', toggleAudio);
+
+      // Volume slider listener
+      if (volumeSlider) {
+        volumeSlider.addEventListener('input', (e) => {
+          const val = parseFloat(e.target.value);
+          if (audioEl) audioEl.volume = val;
+          if (synthMasterGain && audioCtx) {
+            synthMasterGain.gain.setValueAtTime(val * 0.35, audioCtx.currentTime);
+          }
+        });
+      }
+    }
+
+    /* ========================================================================
+       6. INTERACTIVE HOTSPOTS & EASTER EGGS
+       ======================================================================== */
+    function initHotspots() {
+      const plane = document.getElementById('hotspotPlane');
+      if (!plane) return;
+
+      plane.addEventListener('click', (e) => {
+        const target = e.target.closest('.hotspot');
+        if (!target) return;
+
+        const action = target.dataset.action;
+        const modalId = target.dataset.modal;
+
+        if (modalId) {
+          openModal(modalId);
+          playSoftPop();
+          return;
+        }
+
+        if (action === 'cat-left') {
+          playCutePurr();
+          showSpeechBubble(target, 'nyaa~ don\'t wake me up yet :3');
+          spawnSparkleBurst(e.clientX, e.clientY);
+        } else if (action === 'cat-right') {
+          playCutePurr();
+          showSpeechBubble(target, 'purrrrr... sweet dreams active ♡');
+          spawnSparkleBurst(e.clientX, e.clientY);
+        } else if (action === 'mug') {
+          playSoftPop();
+          showSpeechBubble(target, 'Warm vanilla latte with marshmallows ☕');
+        } else if (action === 'clock') {
+          playSoftPop();
+          const now = new Date();
+          showSpeechBubble(target, `Local time: ${now.toLocaleTimeString()} ♡`);
+        } else if (action === 'star') {
+          playStarChime();
+          showSpeechBubble(target, 'A wish was made! ✨');
+          spawnSparkleBurst(e.clientX, e.clientY);
+        } else if (action === 'balloon') {
+          playSoftPop();
+          showSpeechBubble(target, 'Floating gently in the night breeze 🎈');
+        } else if (action === 'lofi-toggle') {
+          const lofiPillBtn = document.getElementById('lofiPillBtn');
+          if (lofiPillBtn) lofiPillBtn.click();
+        } else if (action === 'brand') {
+          playSoftPop();
+          showSpeechBubble(target, 'Rachelian ♡ Building something special');
+        }
+      });
+    }
+
+    function showSpeechBubble(targetEl, text) {
+      // Remove any existing active bubbles
+      const existing = document.querySelector('.speech-bubble-pop');
+      if (existing) existing.remove();
+
+      const bubble = document.createElement('div');
+      bubble.className = 'speech-bubble-pop';
+      bubble.textContent = text;
+
+      const stage = document.querySelector('.hero-stage-wrapper');
+      if (!stage) return;
+
+      const rect = targetEl.getBoundingClientRect();
+      const stageRect = stage.getBoundingClientRect();
+
+      const topPos = rect.top - stageRect.top - 36;
+      const leftPos = rect.left - stageRect.left + (rect.width / 2);
+
+      bubble.style.top = `${Math.max(10, topPos)}px`;
+      bubble.style.left = `${leftPos}px`;
+      bubble.style.transform = 'translateX(-50%)';
+
+      stage.appendChild(bubble);
+
+      setTimeout(() => {
+        if (bubble.parentNode) bubble.remove();
+      }, 2600);
+    }
+
+    /* ========================================================================
+       7. ACCESSIBLE MODALS
+       ======================================================================== */
+    let activeModal = null;
+
+    function initModals() {
+      const backdrops = document.querySelectorAll('.modal-backdrop');
+      backdrops.forEach((bd) => {
+        const closeBtn = bd.querySelector('.modal-close-btn');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => closeModal(bd));
+        }
+        bd.addEventListener('click', (e) => {
+          if (e.target === bd) closeModal(bd);
+        });
+      });
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+      activeModal = modal;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+
+      const focusable = modal.querySelector('button, input, [tabindex="0"]');
+      if (focusable) focusable.focus();
+    }
+
+    function closeModal(modal) {
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
+    }
+
+    /* ========================================================================
+       8. QUOTE ROLLER
+       ======================================================================== */
+    const COZY_QUOTES = [
+      '"good things take time ♡"',
+      '"probably fixing one more bug :3"',
+      '"the code is thinking warmly..."',
+      '"coffee → code → repeat ☕"',
+      '"do not disturb the cat 🐱"',
+      '"please wait warmly ✨"',
+      '"beautiful things are built with patience ♡"',
+      '"99.9% cozy, 0% corporate :3"'
+    ];
+
+    function initQuoteRoller() {
+      const btn = document.getElementById('nextQuoteBtn');
+      const display = document.getElementById('quoteDisplay');
+      if (!btn || !display) return;
+
+      let currentIndex = 0;
+
+      btn.addEventListener('click', () => {
+        playSoftPop();
+        display.style.opacity = '0';
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % COZY_QUOTES.length;
+          display.textContent = COZY_QUOTES[currentIndex];
+          display.style.opacity = '1';
+        }, 180);
+      });
+    }
+
+    /* ========================================================================
+       9. VIP FORM LOCAL STORAGE
+       ======================================================================== */
+    function initVIPForm() {
+      const form = document.getElementById('notifyForm');
+      const input = document.getElementById('notifyEmail');
+      const feedback = document.getElementById('notifyFeedback');
+      if (!form || !input || !feedback) return;
+
+      // Check if user already subscribed
+      const savedEmail = localStorage.getItem('rachelian_vip_email');
+      if (savedEmail) {
+        feedback.textContent = `You're on the cozy VIP list (${savedEmail}) ♡`;
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = input.value.trim();
+        if (!email) return;
+
+        playSoftPop();
+        localStorage.setItem('rachelian_vip_email', email);
+        feedback.textContent = "Thank you! You're on the cozy VIP list :3 ♡";
+        input.value = '';
+      });
+    }
+
+    /* ========================================================================
+       10. PERSISTENT INTERACTIVE TO-DO CHECKLIST
+       ======================================================================== */
+    function initSavedTodos() {
+      const list = document.getElementById('todoList');
+      if (!list) return;
+
+      const checkboxes = list.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach((cb) => {
+        const saved = localStorage.getItem(`rachelian_todo_${cb.id}`);
+        if (saved !== null) {
+          cb.checked = saved === 'true';
+        }
+        cb.addEventListener('change', () => {
+          playSoftPop();
+          localStorage.setItem(`rachelian_todo_${cb.id}`, cb.checked);
+        });
+      });
+    }
+
+    /* ========================================================================
+       11. CURSOR SPARKLE TRAIL & BURSTS
+       ======================================================================== */
+    function initCursorSparkles() {
+      const container = document.getElementById('cursorFx');
+      if (!container || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(pointer: coarse)').matches) return; // Disable on touch devices
+
+      let lastX = 0, lastY = 0, lastTime = 0;
+
+      window.addEventListener('pointermove', (e) => {
+        const now = Date.now();
+        const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+
+        if (dist > 35 && now - lastTime > 60) {
+          lastX = e.clientX;
+          lastY = e.clientY;
+          lastTime = now;
+
+          const sparkle = document.createElement('div');
+          sparkle.className = 'cursor-sparkle';
+          sparkle.style.left = `${e.clientX}px`;
+          sparkle.style.top = `${e.clientY}px`;
+          container.appendChild(sparkle);
+
+          setTimeout(() => sparkle.remove(), 600);
+        }
+      });
+    }
+
+    function spawnSparkleBurst(x, y) {
+      const container = document.getElementById('cursorFx');
+      if (!container) return;
+
+      for (let i = 0; i < 8; i++) {
+        const sp = document.createElement('div');
+        sp.className = 'cursor-sparkle';
+        const offsetX = (Math.random() - 0.5) * 40;
+        const offsetY = (Math.random() - 0.5) * 40;
+        sp.style.left = `${x + offsetX}px`;
+        sp.style.top = `${y + offsetY}px`;
+        container.appendChild(sp);
+        setTimeout(() => sp.remove(), 600);
+      }
+    }
+
+    /* ========================================================================
+       12. KEYBOARD SHORTCUTS
+       ======================================================================== */
+    function initKeyboardShortcuts() {
+      window.addEventListener('keydown', (e) => {
+        // If user is currently typing in an input field, do not trigger shortcuts
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+          if (e.key === 'Escape') {
+            e.target.blur();
+          }
+          return;
+        }
+
+        if (e.key === 'Escape') {
+          if (activeModal) {
+            closeModal(activeModal);
+          }
+          const lofiPanel = document.getElementById('lofiPanel');
+          if (lofiPanel) lofiPanel.classList.remove('active');
+        } else if (e.code === 'Space') {
+          e.preventDefault();
+          const lofiPlayToggle = document.getElementById('lofiPlayToggle');
+          if (lofiPlayToggle) lofiPlayToggle.click();
+        } else if (e.key === 'm' || e.key === 'M') {
+          const slider = document.getElementById('volumeSlider');
+          if (slider) {
+            slider.value = slider.value === '0' ? '0.75' : '0';
+            slider.dispatchEvent(new Event('input'));
+          }
+        } else if (e.key === 'c' || e.key === 'C') {
+          const cat = document.querySelector('.hotspot-cat-right');
+          if (cat) cat.click();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
