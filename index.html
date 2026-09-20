@@ -14,33 +14,31 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Rachelian — Coming Very Soon :3">
   <meta property="og:description" content="Something cute and amazing is on the way! Please wait warmly ♡">
-  <meta property="og:image" content="./assets/scene.webp">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rachelian — Coming Very Soon :3">
   <meta name="twitter:description" content="Something cute and amazing is on the way! Please wait warmly ♡">
-  <meta name="twitter:image" content="./assets/scene.webp">
 
   <!-- Favicon (Cute Cat Face SVG) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fca5d5' d='M6 6l6 6h8l6-6v14a10 10 0 0 1-20 0V6z'/%3E%3Cpolygon fill='%23f472b6' points='6,6 10,12 6,12'/%3E%3Cpolygon fill='%23f472b6' points='26,6 22,12 26,12'/%3E%3Ccircle cx='11' cy='18' r='1.5' fill='%231e1135'/%3E%3Ccircle cx='21' cy='18' r='1.5' fill='%231e1135'/%3E%3Cpath d='M14 21q2 1.5 4 0' stroke='%231e1135' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 
-  <!-- Preconnect & Fonts -->
+  <!-- Fonts: Quicksand, Nunito, Share Tech Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       1. VARIABLES & RESET
+       1. DESIGN SYSTEM VARIABLES & RESET
        ========================================================================== */
     :root {
       --bg-dark: #090713;
-      --bg-night: #0e0a1f;
+      --bg-night: #0f0b21;
       --bg-card: rgba(22, 16, 42, 0.72);
       --bg-card-border: rgba(244, 114, 182, 0.22);
       --bg-card-hover: rgba(36, 26, 68, 0.85);
-      
+
       --pink-soft: #fca5d5;
       --pink-glow: #f472b6;
       --pink-deep: #ec4899;
@@ -59,14 +57,13 @@
       --font-display: 'Quicksand', var(--font-main);
       --font-clock: 'Share Tech Mono', monospace;
 
-      --glow-pink: 0 0 20px rgba(244, 114, 182, 0.45);
-      --glow-cyan: 0 0 15px rgba(103, 232, 249, 0.55);
-      --glow-amber: 0 0 18px rgba(254, 215, 170, 0.4);
-      --glow-text: 0 0 12px rgba(244, 114, 182, 0.6), 0 0 32px rgba(192, 132, 252, 0.4);
+      --glow-pink: 0 0 24px rgba(244, 114, 182, 0.45);
+      --glow-cyan: 0 0 16px rgba(103, 232, 249, 0.55);
+      --glow-amber: 0 0 20px rgba(254, 215, 170, 0.45);
 
       --radius-sm: 8px;
       --radius-md: 14px;
-      --radius-lg: 22px;
+      --radius-lg: 24px;
       --radius-full: 9999px;
 
       --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
@@ -89,20 +86,18 @@
 
     body {
       min-height: 100vh;
-      background: radial-gradient(circle at 50% 0%, #17102e 0%, var(--bg-dark) 80%);
+      background: radial-gradient(circle at 50% 0%, #1a1236 0%, var(--bg-dark) 85%);
       overflow-x: hidden;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Selection styling */
     ::selection {
       background: var(--pink-glow);
       color: #1a0f2e;
     }
 
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -117,7 +112,6 @@
       background: var(--pink-glow);
     }
 
-    /* Accessibility utility */
     .sr-only {
       position: absolute;
       width: 1px;
@@ -148,7 +142,7 @@
       align-items: center;
       justify-content: center;
       gap: 16px;
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
     }
 
     #loader.hidden {
@@ -157,34 +151,28 @@
       pointer-events: none;
     }
 
-    .loader-cat {
-      width: 58px;
-      height: 58px;
-      animation: loaderBounce 1.4s ease-in-out infinite alternate;
+    .loader-cat-icon {
+      width: 54px;
+      height: 54px;
+      animation: loaderFloat 1.4s ease-in-out infinite alternate;
       filter: drop-shadow(var(--glow-pink));
     }
 
-    @keyframes loaderBounce {
+    @keyframes loaderFloat {
       0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-12px) scale(1.05); }
+      100% { transform: translateY(-10px) scale(1.06); }
     }
 
     .loader-text {
       font-family: var(--font-display);
       font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      font-weight: 700;
       color: var(--pink-soft);
-      animation: loaderPulse 1.8s ease-in-out infinite;
-    }
-
-    @keyframes loaderPulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
+      letter-spacing: 0.04em;
     }
 
     /* ==========================================================================
-       3. BACKGROUND CANVAS & AMBIENCE
+       3. AMBIENT PARTICLE CANVAS & CURSOR
        ========================================================================== */
     #particleCanvas {
       position: fixed;
@@ -192,10 +180,9 @@
       width: 100vw;
       height: 100vh;
       pointer-events: none;
-      z-index: 2;
+      z-index: 1;
     }
 
-    /* Cursor sparkles container */
     #cursorFx {
       position: fixed;
       inset: 0;
@@ -210,7 +197,7 @@
       height: 6px;
       border-radius: 50%;
       background: var(--pink-soft);
-      box-shadow: 0 0 8px var(--pink-glow);
+      box-shadow: 0 0 10px var(--pink-glow);
       pointer-events: none;
       transform: translate(-50%, -50%);
       animation: sparkleFade 0.6s ease-out forwards;
@@ -218,68 +205,56 @@
 
     @keyframes sparkleFade {
       0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) translateY(-14px); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) translateY(-16px); }
     }
 
     /* ==========================================================================
-       4. HERO SECTION COMPOSITION
+       4. TOP HEADER NAVIGATION
        ========================================================================== */
-    .hero-container {
-      position: relative;
-      width: 100%;
-      max-width: 1360px;
-      margin: 0 auto;
-      padding: 16px 20px 32px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      z-index: 10;
-    }
-
-    /* Header Nav */
     .site-header {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px;
       position: relative;
-      z-index: 30;
+      z-index: 50;
     }
 
     .brand-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
       color: inherit;
       cursor: pointer;
       user-select: none;
     }
 
-    .brand-avatar-wrap {
-      position: relative;
+    .brand-avatar {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(244, 114, 182, 0.35), rgba(192, 132, 252, 0.2));
-      border: 1.5px solid rgba(244, 114, 182, 0.4);
+      background: linear-gradient(135deg, rgba(244, 114, 182, 0.4), rgba(192, 132, 252, 0.2));
+      border: 1.5px solid rgba(244, 114, 182, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 0 16px rgba(244, 114, 182, 0.3);
       transition: var(--transition-smooth);
-      box-shadow: 0 0 14px rgba(244, 114, 182, 0.25);
     }
 
-    .brand-group:hover .brand-avatar-wrap {
-      transform: scale(1.08) rotate(6deg);
+    .brand-group:hover .brand-avatar {
+      transform: scale(1.1) rotate(6deg);
       border-color: var(--pink-glow);
       box-shadow: var(--glow-pink);
     }
 
-    .brand-avatar-svg {
-      width: 28px;
-      height: 28px;
+    .brand-avatar svg {
+      width: 26px;
+      height: 26px;
     }
 
     .brand-info {
@@ -289,22 +264,19 @@
 
     .brand-name {
       font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      color: #fff;
     }
 
     .brand-tagline {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* Top Right Lofi Control */
+    /* Lofi Pill & Dropdown */
     .lofi-pill-wrap {
       position: relative;
     }
@@ -313,31 +285,27 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(28, 20, 52, 0.65);
+      background: rgba(28, 20, 52, 0.7);
       border: 1px solid rgba(244, 114, 182, 0.35);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      padding: 8px 18px;
+      padding: 9px 20px;
       border-radius: var(--radius-full);
-      color: var(--text-main);
+      color: #fff;
       font-family: var(--font-display);
-      font-size: 0.88rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 700;
       cursor: pointer;
       transition: var(--transition-smooth);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
       user-select: none;
     }
 
     .lofi-pill-btn:hover {
-      background: rgba(45, 30, 80, 0.8);
+      background: rgba(45, 30, 80, 0.85);
       border-color: var(--pink-glow);
       box-shadow: var(--glow-pink);
       transform: translateY(-2px);
-    }
-
-    .lofi-pill-btn:active {
-      transform: translateY(0);
     }
 
     .lofi-pill-btn.playing {
@@ -345,12 +313,6 @@
       box-shadow: var(--glow-cyan);
     }
 
-    .lofi-icon {
-      font-size: 1rem;
-      color: var(--pink-soft);
-    }
-
-    /* Equalizer wave bars */
     .lofi-equalizer {
       display: flex;
       align-items: center;
@@ -376,23 +338,22 @@
       50% { height: 14px; background: var(--cyan-glow); }
     }
 
-    /* Lofi Popup Panel */
     .lofi-panel {
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      width: 290px;
-      background: rgba(22, 16, 42, 0.92);
-      border: 1px solid rgba(244, 114, 182, 0.3);
+      width: 300px;
+      background: rgba(22, 16, 44, 0.95);
+      border: 1px solid rgba(244, 114, 182, 0.35);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-radius: var(--radius-md);
-      padding: 16px;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), var(--glow-pink);
+      padding: 18px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), var(--glow-pink);
       z-index: 100;
       display: none;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       animation: panelSlide 0.24s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -410,11 +371,11 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 8px;
+      padding-bottom: 10px;
     }
 
     .lofi-panel-title {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--pink-soft);
       display: flex;
@@ -423,12 +384,13 @@
     }
 
     .lofi-status-badge {
-      font-size: 0.7rem;
-      padding: 2px 8px;
+      font-size: 0.72rem;
+      padding: 3px 9px;
       border-radius: var(--radius-full);
       background: rgba(244, 114, 182, 0.15);
       color: var(--pink-soft);
       border: 1px solid rgba(244, 114, 182, 0.25);
+      font-weight: 600;
     }
 
     .lofi-status-badge.live {
@@ -448,7 +410,7 @@
     .source-btn {
       flex: 1;
       padding: 6px;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 600;
       border: none;
       background: transparent;
@@ -466,13 +428,12 @@
     .lofi-controls-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 12px;
     }
 
     .lofi-play-btn {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--pink-glow), var(--purple-lavender));
       border: none;
@@ -482,7 +443,8 @@
       justify-content: center;
       cursor: pointer;
       transition: var(--transition-smooth);
-      box-shadow: 0 0 14px rgba(244, 114, 182, 0.4);
+      box-shadow: 0 0 16px rgba(244, 114, 182, 0.4);
+      font-size: 1rem;
     }
 
     .lofi-play-btn:hover {
@@ -500,8 +462,8 @@
     .volume-slider {
       flex: 1;
       -webkit-appearance: none;
-      height: 4px;
-      border-radius: 2px;
+      height: 5px;
+      border-radius: 3px;
       background: rgba(255, 255, 255, 0.15);
       outline: none;
       cursor: pointer;
@@ -518,360 +480,368 @@
       transition: transform 0.1s;
     }
 
-    .volume-slider::-webkit-slider-thumb:hover {
-      transform: scale(1.2);
-    }
-
     .lofi-footer-note {
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       color: var(--text-faint);
-      line-height: 1.3;
       text-align: center;
     }
 
     /* ==========================================================================
-       5. HERO ARTWORK & INTERACTIVE STAGE
+       5. HERO SECTION: 2-COLUMN BALANCED LAYOUT
        ========================================================================== */
-    .hero-stage-wrapper {
+    .hero-container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 28px 40px;
+      min-height: calc(100vh - 90px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       position: relative;
-      width: 100%;
-      margin: 12px auto 0;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid rgba(244, 114, 182, 0.25);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(28, 16, 52, 0.6);
-      background: #0d091b;
-      aspect-ratio: 1024 / 542;
+      z-index: 10;
     }
 
-    /* The visual background artwork */
-    .hero-artwork-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-      user-select: none;
-      filter: saturate(1.05) contrast(1.02);
-      transition: filter 0.8s ease;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: 48px;
+      margin: auto 0;
+      padding: 10px 0;
     }
 
-    /* Ambient animated lighting overlay */
-    .hero-lighting-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at 10% 85%, rgba(254, 215, 170, 0.08) 0%, transparent 40%),
-                  radial-gradient(circle at 85% 75%, rgba(103, 232, 249, 0.06) 0%, transparent 45%),
-                  radial-gradient(circle at 35% 20%, rgba(244, 114, 182, 0.07) 0%, transparent 50%);
-      mix-blend-mode: screen;
-      animation: breathingAmbience 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes breathingAmbience {
-      0% { opacity: 0.6; }
-      100% { opacity: 1; }
-    }
-
-    /* Shooting star canvas layer */
-    #skyCanvas {
-      position: absolute;
-      top: 0;
-      left: 20%;
-      width: 60%;
-      height: 60%;
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    /* Interactive hotspot overlay plane */
-    .hero-interactive-plane {
-      position: absolute;
-      inset: 0;
+    /* Left Column: Typography & Actions */
+    .hero-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       z-index: 20;
     }
 
-    /* Hotspot common styles */
-    .hotspot {
-      position: absolute;
-      background: transparent;
-      border: none;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(244, 114, 182, 0.12);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      color: var(--pink-soft);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      width: fit-content;
+      box-shadow: 0 0 16px rgba(244, 114, 182, 0.15);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(244, 114, 182, 0.3);
+    }
+
+    .title-gradient {
+      background: linear-gradient(135deg, #fff 20%, var(--pink-soft) 60%, var(--purple-lavender) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .title-cat-face {
+      display: inline-block;
+      color: var(--pink-glow);
+      text-shadow: var(--glow-pink);
+      transform: translateY(-2px);
+      animation: catWink 4s ease-in-out infinite;
+    }
+
+    @keyframes catWink {
+      0%, 90%, 100% { transform: translateY(-2px) rotate(0deg); }
+      95% { transform: translateY(-4px) rotate(8deg) scale(1.15); }
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+      font-weight: 700;
+      color: var(--pink-soft);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-desc {
+      font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.65;
+    }
+
+    /* 4 Primary Interactive Buttons */
+    .hero-actions-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(28, 20, 52, 0.6);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
       cursor: pointer;
-      border-radius: var(--radius-sm);
       transition: var(--transition-smooth);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-btn:hover {
+      background: rgba(244, 114, 182, 0.2);
+      border-color: var(--pink-glow);
+      box-shadow: var(--glow-pink);
+      transform: translateY(-3px);
+      color: var(--pink-soft);
+    }
+
+    .hero-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Small cozy status chip */
+    .hero-quick-status {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 18px;
+      background: rgba(18, 12, 36, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      width: fit-content;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 10px #4ade80;
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    /* ==========================================================================
+       6. RIGHT COLUMN: PURE SVG ANIMATED COZY CAT SCENE
+       ========================================================================== */
+    .hero-scene-card {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #181135 0%, #0e0921 100%);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(28, 16, 52, 0.8);
+      overflow: hidden;
+      aspect-ratio: 1.18 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cozy-svg-scene {
+      width: 100%;
+      height: 100%;
+      display: block;
+      user-select: none;
+    }
+
+    /* SVG Animation Keyframes */
+    /* 1. Cat Breathing */
+    .cat-breathe-group {
+      transform-origin: 300px 380px;
+      animation: catBreathing 3.6s ease-in-out infinite;
+    }
+
+    @keyframes catBreathing {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.02, 0.985); }
+    }
+
+    /* 2. Cat Tail Wag */
+    .cat-tail-path {
+      transform-origin: 220px 375px;
+      animation: catTailWag 4.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes catTailWag {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(7deg); }
+    }
+
+    /* 3. Cat Ear Twitch */
+    .cat-left-ear {
+      transform-origin: 320px 320px;
+      animation: earTwitchLeft 6s ease-in-out infinite;
+    }
+    .cat-right-ear {
+      transform-origin: 365px 320px;
+      animation: earTwitchRight 6s ease-in-out infinite 0.3s;
+    }
+
+    @keyframes earTwitchLeft {
+      0%, 88%, 100% { transform: rotate(0deg); }
+      92% { transform: rotate(-8deg); }
+      96% { transform: rotate(4deg); }
+    }
+
+    @keyframes earTwitchRight {
+      0%, 88%, 100% { transform: rotate(0deg); }
+      92% { transform: rotate(8deg); }
+      96% { transform: rotate(-4deg); }
+    }
+
+    /* 4. Floating Zzz */
+    .zzz-1 { animation: floatZzz 3.2s infinite ease-in-out; }
+    .zzz-2 { animation: floatZzz 3.2s infinite ease-in-out 1s; }
+    .zzz-3 { animation: floatZzz 3.2s infinite ease-in-out 2s; }
+
+    @keyframes floatZzz {
+      0% { opacity: 0; transform: translate(0, 0) scale(0.6); }
+      35% { opacity: 0.9; }
+      100% { opacity: 0; transform: translate(25px, -35px) scale(1.2); }
+    }
+
+    /* 5. Steaming Mug */
+    .steam-path-1 { animation: steamRiseSvg 2.4s infinite ease-out; }
+    .steam-path-2 { animation: steamRiseSvg 2.8s infinite ease-out 0.8s; }
+    .steam-path-3 { animation: steamRiseSvg 2.2s infinite ease-out 1.5s; }
+
+    @keyframes steamRiseSvg {
+      0% { opacity: 0; transform: translateY(0) scaleX(1); }
+      30% { opacity: 0.7; }
+      100% { opacity: 0; transform: translateY(-26px) scaleX(1.4); }
+    }
+
+    /* 6. Hanging Stars Sway */
+    .hanging-star-1 { transform-origin: 90px 0px; animation: starSway 4.8s ease-in-out infinite alternate; }
+    .hanging-star-2 { transform-origin: 160px 0px; animation: starSway 5.5s ease-in-out infinite alternate 0.6s; }
+    .hanging-star-3 { transform-origin: 480px 0px; animation: starSway 4.2s ease-in-out infinite alternate 1.2s; }
+
+    @keyframes starSway {
+      0% { transform: rotate(-3deg); }
+      100% { transform: rotate(4deg); }
+    }
+
+    /* 7. Twinkling Night Stars */
+    .twinkle-star { animation: starTwinkle 3s ease-in-out infinite alternate; }
+    .twinkle-star:nth-child(2) { animation-delay: 0.7s; }
+    .twinkle-star:nth-child(3) { animation-delay: 1.4s; }
+    .twinkle-star:nth-child(4) { animation-delay: 2.1s; }
+
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* 8. Shooting Star inside Scene Window */
+    .svg-shooting-star {
+      animation: shootStarSvg 11s infinite ease-in;
+    }
+
+    @keyframes shootStarSvg {
+      0%, 82% { opacity: 0; transform: translate(0, 0); }
+      84% { opacity: 1; transform: translate(120px, 70px); }
+      86%, 100% { opacity: 0; transform: translate(180px, 105px); }
+    }
+
+    /* SVG Interactive Elements */
+    .svg-clickable {
+      cursor: pointer;
+      transition: filter 0.2s ease, transform 0.2s ease;
       outline: none;
     }
 
-    .hotspot:hover {
-      filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.7));
+    .svg-clickable:hover {
+      filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.8));
     }
 
-    /* Top Left Brand Hotspot */
-    .hotspot-brand {
-      left: 5.8%;
-      top: 3.5%;
-      width: 18%;
-      height: 7.5%;
-      border-radius: var(--radius-full);
+    .svg-clickable:active {
+      transform: scale(0.97);
     }
 
-    /* Top Right Lofi Hotspot */
-    .hotspot-lofi {
-      left: 79.3%;
-      top: 4%;
-      width: 12.2%;
-      height: 7%;
-      border-radius: var(--radius-full);
-    }
-
-    /* 4 Primary Action Buttons */
-    .hotspot-btn {
-      top: 61.5%;
-      height: 7.6%;
-      border-radius: 9999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid transparent;
-      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hotspot-btn:hover {
-      background: rgba(244, 114, 182, 0.15);
-      border-color: rgba(244, 114, 182, 0.6);
-      box-shadow: 0 0 16px rgba(244, 114, 182, 0.45);
-      transform: translateY(-2px);
-    }
-
-    .hotspot-btn:active {
-      transform: translateY(1px);
-    }
-
-    .hotspot-btn-portfolio { left: 9.4%; width: 7.4%; }
-    .hotspot-btn-projects  { left: 17.3%; width: 7%; }
-    .hotspot-btn-blog      { left: 24.8%; width: 5.1%; }
-    .hotspot-btn-more      { left: 30.3%; width: 8.6%; }
-
-    /* Digital Clock Hotspot & Live Time Render */
-    .hotspot-clock {
-      left: 2.3%;
-      top: 85%;
-      width: 13.5%;
-      height: 13%;
-      border-radius: 12px;
-      cursor: pointer;
-    }
-
-    .live-clock-face {
+    /* Interactive Speech Bubble inside Scene */
+    .scene-speech-bubble {
       position: absolute;
-      left: 5.4%;
-      top: 88.5%;
-      width: 8.8%;
-      height: 7.4%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-clock);
-      font-size: clamp(0.75rem, 1.25vw, 1.4rem);
-      font-weight: 700;
-      color: #5eead4;
-      text-shadow: 0 0 8px rgba(94, 234, 212, 0.9), 0 0 16px rgba(45, 212, 191, 0.4);
-      pointer-events: none;
-      letter-spacing: 0.05em;
-    }
-
-    .clock-colon {
-      animation: colonBlink 1s infinite steps(1);
-    }
-
-    @keyframes colonBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
-    }
-
-    /* Left Sleeping Kitten */
-    .hotspot-cat-left {
-      left: 16.4%;
-      top: 86.5%;
-      width: 11%;
-      height: 12%;
-      border-radius: 50% 50% 30% 30%;
-    }
-
-    /* Books Stack */
-    .hotspot-books {
-      left: 27.9%;
-      top: 77.8%;
-      width: 14%;
-      height: 20%;
-      border-radius: 8px;
-    }
-
-    /* Hot Mug with Steam */
-    .hotspot-mug {
-      left: 42.9%;
-      top: 85.5%;
-      width: 7%;
-      height: 12.5%;
-      border-radius: 10px;
-    }
-
-    /* Animated CSS Steam over Mug */
-    .mug-steam-wrap {
-      position: absolute;
-      left: 45.5%;
-      top: 82%;
-      width: 20px;
-      height: 25px;
-      pointer-events: none;
-      z-index: 15;
-    }
-
-    .steam-particle {
-      position: absolute;
-      bottom: 0;
-      width: 6px;
-      height: 6px;
-      background: rgba(255, 240, 245, 0.5);
-      border-radius: 50%;
-      filter: blur(2px);
-      animation: steamRise 2.8s infinite ease-out;
-    }
-
-    .steam-particle:nth-child(2) {
-      left: 6px;
-      animation-delay: 0.9s;
-      animation-duration: 3.2s;
-    }
-
-    .steam-particle:nth-child(3) {
-      left: 12px;
-      animation-delay: 1.8s;
-      animation-duration: 2.6s;
-    }
-
-    @keyframes steamRise {
-      0% { transform: translateY(0) scale(1); opacity: 0; }
-      30% { opacity: 0.7; }
-      100% { transform: translateY(-28px) scale(2.2); opacity: 0; }
-    }
-
-    /* Right Sleeping Cat (Next to Girl) */
-    .hotspot-cat-right {
-      left: 64.4%;
-      top: 81%;
-      width: 13.8%;
-      height: 16%;
-      border-radius: 50%;
-    }
-
-    /* Floating Heart Bubble above Cat */
-    .hotspot-heart {
-      left: 68.3%;
-      top: 73.8%;
-      width: 4.5%;
-      height: 8.5%;
-      border-radius: 50%;
-      animation: heartBob 2.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes heartBob {
-      0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-4px) scale(1.08); }
-    }
-
-    /* Laptop Screen */
-    .hotspot-laptop {
-      left: 78.5%;
-      top: 63.5%;
-      width: 19%;
-      height: 35%;
-      border-radius: 12px;
-    }
-
-    /* Hanging Stars */
-    .hotspot-star-1 { left: 30.7%; top: 3.6%; width: 2%; height: 5%; border-radius: 50%; }
-    .hotspot-star-2 { left: 35.1%; top: 4.5%; width: 3%; height: 8.5%; border-radius: 50%; }
-    .hotspot-star-3 { left: 89.8%; top: 18.4%; width: 3%; height: 8.5%; border-radius: 50%; }
-
-    /* Cat Balloon in the Sky */
-    .hotspot-balloon {
-      left: 64.4%;
-      top: 23.8%;
-      width: 7.5%;
-      height: 19.5%;
-      border-radius: 50%;
-      animation: balloonDrift 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes balloonDrift {
-      0% { transform: translateY(0) rotate(-1deg); }
-      100% { transform: translateY(-6px) rotate(2deg); }
-    }
-
-    /* Sticky Note on Wall */
-    .hotspot-note {
-      left: 88.6%;
-      top: 36.8%;
-      width: 9%;
-      height: 24%;
-      border-radius: 6px;
-    }
-
-    /* Interactive Bubble Speech */
-    .speech-bubble-pop {
-      position: absolute;
-      background: rgba(22, 16, 42, 0.95);
-      border: 1px solid var(--pink-glow);
+      background: rgba(22, 16, 44, 0.95);
+      border: 1.5px solid var(--pink-glow);
       color: #fff;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 6px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 7px 14px;
       border-radius: var(--radius-md);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), var(--glow-pink);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), var(--glow-pink);
       pointer-events: none;
-      z-index: 50;
+      z-index: 60;
       white-space: nowrap;
-      animation: bubblePopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1), bubbleFadeOut 0.4s ease 2.2s forwards;
+      animation: bubbleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1), bubbleOut 0.4s ease 2.2s forwards;
       transform-origin: bottom center;
     }
 
-    @keyframes bubblePopIn {
-      0% { opacity: 0; transform: translateY(10px) scale(0.8); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translate(-50%, 10px) scale(0.85); }
+      to { opacity: 1; transform: translate(-50%, 0) scale(1); }
     }
 
-    @keyframes bubbleFadeOut {
-      to { opacity: 0; transform: translateY(-6px) scale(0.9); }
+    @keyframes bubbleOut {
+      to { opacity: 0; transform: translate(-50%, -8px) scale(0.9); }
     }
 
-    /* Bottom Scroll Indicator inside Hero */
-    .hero-scroll-prompt {
+    /* ==========================================================================
+       7. BOTTOM SCROLL INDICATOR
+       ========================================================================== */
+    .scroll-prompt {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      margin: 16px auto 0;
+      margin: 20px auto 0;
       text-decoration: none;
       color: var(--text-muted);
       font-family: var(--font-display);
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.88rem;
+      font-weight: 700;
       cursor: pointer;
       transition: var(--transition-smooth);
       user-select: none;
     }
 
-    .hero-scroll-prompt:hover {
+    .scroll-prompt:hover {
       color: var(--pink-soft);
-      transform: translateY(2px);
+      transform: translateY(3px);
     }
 
-    .mouse-scroll-icon {
-      width: 20px;
-      height: 32px;
+    .mouse-icon {
+      width: 22px;
+      height: 34px;
       border: 2px solid rgba(244, 114, 182, 0.5);
       border-radius: 12px;
       position: relative;
@@ -879,35 +849,35 @@
       justify-content: center;
     }
 
-    .mouse-scroll-wheel {
+    .mouse-wheel {
       width: 3px;
       height: 6px;
       background: var(--pink-glow);
       border-radius: 2px;
       margin-top: 6px;
-      animation: wheelRoll 1.6s infinite ease-in-out;
+      animation: mouseWheelMove 1.6s infinite ease-in-out;
     }
 
-    @keyframes wheelRoll {
+    @keyframes mouseWheelMove {
       0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(12px); opacity: 0; }
+      100% { transform: translateY(14px); opacity: 0; }
     }
 
     /* ==========================================================================
-       6. SECTION 2: "CURRENTLY COOKING..."
+       8. SECTION 2: "CURRENTLY COOKING..."
        ========================================================================== */
     .magic-section {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 60px auto 40px;
-      padding: 0 24px;
+      padding: 0 28px;
       position: relative;
       z-index: 20;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
 
     .section-tag {
@@ -943,7 +913,6 @@
       margin: 0 auto;
     }
 
-    /* Cards Grid */
     .cooking-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -957,7 +926,7 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-radius: var(--radius-md);
-      padding: 24px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1059,7 +1028,7 @@
       transition: width 1s ease-out;
     }
 
-    /* Interactive Quote & VIP subscription row */
+    /* Microcopy Quote Box & VIP Club */
     .magic-interactive-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1073,7 +1042,6 @@
       }
     }
 
-    /* Cute Microcopy Quote Card */
     .quote-box {
       background: var(--bg-card);
       border: 1px solid var(--bg-card-border);
@@ -1130,7 +1098,6 @@
       transition: opacity 0.2s ease;
     }
 
-    /* VIP Notification Box */
     .notify-box {
       background: var(--bg-card);
       border: 1px solid var(--bg-card-border);
@@ -1206,7 +1173,7 @@
     }
 
     /* ==========================================================================
-       7. FOOTER
+       9. FOOTER
        ========================================================================== */
     .site-footer {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1256,7 +1223,7 @@
     }
 
     /* ==========================================================================
-       8. MODAL DIALOGS (PORTFOLIO, LAPTOP, BOOKS, TODO, ETC.)
+       10. MODAL DIALOGS
        ========================================================================== */
     .modal-backdrop {
       position: fixed;
@@ -1345,7 +1312,6 @@
       margin-bottom: 22px;
     }
 
-    /* Terminal Style in Laptop Modal */
     .terminal-box {
       background: #0d0918;
       border: 1px solid rgba(103, 232, 249, 0.25);
@@ -1362,7 +1328,6 @@
     .term-dim { color: var(--text-faint); }
     .term-pink { color: var(--pink-soft); }
 
-    /* Interactive To-Do List */
     .todo-list {
       list-style: none;
       display: flex;
@@ -1389,38 +1354,59 @@
     }
 
     /* ==========================================================================
-       9. RESPONSIVE OPTIMIZATIONS
+       11. RESPONSIVE BREAKPOINTS
        ========================================================================== */
-    @media (max-width: 900px) {
-      .hero-container {
-        padding: 12px 14px 24px;
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
       }
-      .site-header {
-        padding: 8px 6px;
+      .hero-text-col {
+        align-items: center;
       }
-      .brand-name {
-        font-size: 1.1rem;
+      .hero-desc {
+        max-width: 600px;
       }
-      .brand-tagline {
-        font-size: 0.72rem;
+      .hero-actions-grid {
+        justify-content: center;
       }
-      .magic-section {
-        margin: 40px auto 20px;
+      .hero-quick-status {
+        margin: 0 auto;
+      }
+      .hero-scene-card {
+        max-width: 500px;
       }
     }
 
     @media (max-width: 640px) {
+      .site-header {
+        padding: 16px 20px;
+      }
       .hero-container {
-        min-height: auto;
+        padding: 16px 20px 32px;
       }
-      .hero-stage-wrapper {
-        border-radius: var(--radius-md);
+      .brand-name {
+        font-size: 1.15rem;
       }
-      .cooking-grid {
-        grid-template-columns: 1fr;
+      .brand-tagline {
+        font-size: 0.74rem;
+      }
+      .hero-title {
+        font-size: 2.6rem;
+      }
+      .hero-actions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+      .hero-btn {
+        justify-content: center;
+        padding: 12px 14px;
+        font-size: 0.9rem;
       }
       .lofi-panel {
-        width: 270px;
+        width: 280px;
         right: -10px;
       }
       .notify-form {
@@ -1428,7 +1414,6 @@
       }
     }
 
-    /* Accessibility: Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1436,22 +1421,17 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
-      #particleCanvas, #skyCanvas {
+      #particleCanvas {
         display: none !important;
-      }
-      .loader-cat {
-        animation: none !important;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==========================================================================
-       INITIAL LOADING SCREEN
-       ========================================================================== -->
+  <!-- Loading Screen -->
   <div id="loader" aria-hidden="false">
-    <svg class="loader-cat" viewBox="0 0 32 32" fill="none">
+    <svg class="loader-cat-icon" viewBox="0 0 32 32" fill="none">
       <path fill="#fca5d5" d="M6 6l6 6h8l6-6v14a10 10 0 0 1-20 0V6z"/>
       <polygon fill="#f472b6" points="6,6 10,12 6,12"/>
       <polygon fill="#f472b6" points="26,6 22,12 26,12"/>
@@ -1462,150 +1442,404 @@
     <div class="loader-text">preparing something special... :3</div>
   </div>
 
-  <!-- Ambient Particle Canvas -->
+  <!-- Ambient Particles & Cursor FX -->
   <canvas id="particleCanvas"></canvas>
   <div id="cursorFx"></div>
 
-  <!-- Audio Element for Online Lofi Radio -->
+  <!-- Audio Element for Stream -->
   <audio id="lofiAudio" preload="none" crossorigin="anonymous"></audio>
 
   <!-- ==========================================================================
-       MAIN HERO SECTION
+       HEADER
        ========================================================================== -->
-  <header class="hero-container">
-    <!-- Header Top Navigation -->
-    <div class="site-header">
-      <a href="#hero" class="brand-group" aria-label="Rachelian Home">
-        <div class="brand-avatar-wrap">
-          <svg class="brand-avatar-svg" viewBox="0 0 32 32" fill="none">
-            <path fill="#fca5d5" d="M6 6l6 6h8l6-6v14a10 10 0 0 1-20 0V6z"/>
-            <polygon fill="#f472b6" points="6,6 10,12 6,12"/>
-            <polygon fill="#f472b6" points="26,6 22,12 26,12"/>
-            <circle cx="11" cy="18" r="1.5" fill="#1e1135"/>
-            <circle cx="21" cy="18" r="1.5" fill="#1e1135"/>
-            <path d="M14 21q2 1.5 4 0" stroke="#1e1135" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
+  <header class="site-header">
+    <a href="#hero" class="brand-group" aria-label="Rachelian Home">
+      <div class="brand-avatar">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path fill="#fca5d5" d="M6 6l6 6h8l6-6v14a10 10 0 0 1-20 0V6z"/>
+          <polygon fill="#f472b6" points="6,6 10,12 6,12"/>
+          <polygon fill="#f472b6" points="26,6 22,12 26,12"/>
+          <circle cx="11" cy="18" r="1.5" fill="#1e1135"/>
+          <circle cx="21" cy="18" r="1.5" fill="#1e1135"/>
+          <path d="M14 21q2 1.5 4 0" stroke="#1e1135" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="brand-info">
+        <span class="brand-name">rachelian</span>
+        <span class="brand-tagline">building something special...</span>
+      </div>
+    </a>
+
+    <!-- Lofi Mode Control Pill -->
+    <div class="lofi-pill-wrap">
+      <button id="lofiPillBtn" class="lofi-pill-btn" aria-label="Toggle Lofi Music Mode" aria-expanded="false">
+        <span style="font-size: 1rem; color: var(--pink-soft)">♫</span>
+        <span>Lofi Mode</span>
+        <div class="lofi-equalizer" aria-hidden="true">
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
         </div>
-        <div class="brand-info">
-          <span class="brand-name">rachelian</span>
-          <span class="brand-tagline">building something special...</span>
+      </button>
+
+      <!-- Dropdown Panel -->
+      <div id="lofiPanel" class="lofi-panel" role="region" aria-label="Lofi Music Controller">
+        <div class="lofi-panel-header">
+          <div class="lofi-panel-title">
+            <span>☕</span> Cozy Radio
+          </div>
+          <span id="lofiStatusBadge" class="lofi-status-badge">Ready</span>
         </div>
-      </a>
 
-      <!-- Lofi Player Control Pill -->
-      <div class="lofi-pill-wrap">
-        <button id="lofiPillBtn" class="lofi-pill-btn" aria-label="Toggle Lofi Music Mode" aria-expanded="false">
-          <span class="lofi-icon">♫</span>
-          <span>Lofi Mode</span>
-          <div class="lofi-equalizer" aria-hidden="true">
-            <div class="eq-bar"></div>
-            <div class="eq-bar"></div>
-            <div class="eq-bar"></div>
-            <div class="eq-bar"></div>
-          </div>
-        </button>
+        <div class="lofi-source-toggle">
+          <button id="srcSynthBtn" class="source-btn active" title="Generative procedural lofi music (100% offline)">Dream Synth</button>
+          <button id="srcStreamBtn" class="source-btn" title="Live SomaFM Groove Salad stream">Live Radio</button>
+        </div>
 
-        <!-- Lofi Dropdown Control Panel -->
-        <div id="lofiPanel" class="lofi-panel" role="region" aria-label="Lofi Music Controller">
-          <div class="lofi-panel-header">
-            <div class="lofi-panel-title">
-              <span>☕</span> Cozy Radio
-            </div>
-            <span id="lofiStatusBadge" class="lofi-status-badge">Ready</span>
+        <div class="lofi-controls-row">
+          <button id="lofiPlayToggle" class="lofi-play-btn" aria-label="Play or Pause music">
+            <span id="playIcon">▶</span>
+          </button>
+          <div class="volume-wrap">
+            <span style="font-size: 0.8rem; color: var(--text-muted)">🔈</span>
+            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.75" aria-label="Volume">
+            <span style="font-size: 0.8rem; color: var(--text-muted)">🔊</span>
           </div>
+        </div>
 
-          <div class="lofi-source-toggle">
-            <button id="srcSynthBtn" class="source-btn active" title="Generative procedural lofi music (100% offline)">Dream Synth</button>
-            <button id="srcStreamBtn" class="source-btn" title="Live SomaFM Groove Salad stream">Live Radio</button>
-          </div>
-
-          <div class="lofi-controls-row">
-            <button id="lofiPlayToggle" class="lofi-play-btn" aria-label="Play or Pause music">
-              <span id="playIcon">▶</span>
-            </button>
-            <div class="volume-wrap">
-              <span style="font-size: 0.8rem; color: var(--text-muted)">🔈</span>
-              <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.75" aria-label="Volume">
-              <span style="font-size: 0.8rem; color: var(--text-muted)">🔊</span>
-            </div>
-          </div>
-
-          <div class="lofi-footer-note" id="lofiNote">
-            Generative pentatonic chords &amp; soft vinyl crackle
-          </div>
+        <div class="lofi-footer-note" id="lofiNote">
+          Generative pentatonic chords &amp; soft vinyl warmth
         </div>
       </div>
     </div>
+  </header>
 
-    <!-- The Cozy Visual Stage & Interactive Canvas -->
-    <main id="hero" class="hero-stage-wrapper" role="region" aria-label="Cozy developer room interactive scene">
-      <!-- High-res Visual Artwork Backdrop -->
-      <img src="./assets/scene.webp" alt="Cozy developer room at night with an anime girl sleeping on desk, two kittens, glowing laptop, steaming mug, books, and city skyline through the window" class="hero-artwork-img" loading="eager">
-      
-      <!-- Subtle Lighting and Shooting Star Canvas -->
-      <div class="hero-lighting-overlay"></div>
-      <canvas id="skyCanvas"></canvas>
+  <!-- ==========================================================================
+       MAIN HERO SECTION: 2-COLUMN (TEXT + ANIMATED CAT SCENE)
+       ========================================================================== -->
+  <main id="hero" class="hero-container">
+    <div class="hero-grid">
+      <!-- Left Column: Typography & Actions -->
+      <div class="hero-text-col">
+        <div class="hero-badge">✦ Building Something Special ✦</div>
+        
+        <h1 class="hero-title">
+          Coming<br>
+          <span class="title-gradient">Very Soon</span>
+          <span class="title-cat-face">:3</span>
+        </h1>
 
-      <!-- Live Rising Steam Particles above Mug -->
-      <div class="mug-steam-wrap" aria-hidden="true">
-        <div class="steam-particle"></div>
-        <div class="steam-particle"></div>
-        <div class="steam-particle"></div>
+        <p class="hero-subtitle">Something cute and amazing is on the way!</p>
+
+        <p class="hero-desc">
+          I'm currently working hard to bring you a new experience.<br>
+          Stay tuned — it'll be worth the wait!
+        </p>
+
+        <!-- 4 Primary Action Pills -->
+        <div class="hero-actions-grid">
+          <button class="hero-btn" data-modal="portfolioModal">
+            <span>🌸</span>
+            <span>Portfolio</span>
+          </button>
+          <button class="hero-btn" data-modal="projectsModal">
+            <span>💻</span>
+            <span>Projects</span>
+          </button>
+          <button class="hero-btn" data-modal="blogModal">
+            <span>📝</span>
+            <span>Blog</span>
+          </button>
+          <button class="hero-btn" data-modal="moreModal">
+            <span>✨</span>
+            <span>And more...</span>
+          </button>
+        </div>
+
+        <!-- Quick Status -->
+        <div class="hero-quick-status">
+          <div class="pulse-dot"></div>
+          <span>Status: <strong>Brewing code &amp; tea</strong></span>
+          <span style="color: var(--text-faint)">|</span>
+          <span>Caffeine: <strong>99% ☕</strong></span>
+        </div>
       </div>
 
-      <!-- Real-time Synchronized Digital Desk Clock -->
-      <div class="live-clock-face" aria-live="off" title="Current local time">
-        <span id="clockHour">00</span><span class="clock-colon">:</span><span id="clockMin">00</span>
+      <!-- Right Column: Pure SVG & CSS Animated Cozy Cat Scene -->
+      <div class="hero-scene-card" id="sceneCard" role="region" aria-label="Animated cozy sleeping cat on desk">
+        <svg class="cozy-svg-scene" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Sky Gradient -->
+            <radialGradient id="skyGrad" cx="50%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#221747"/>
+              <stop offset="60%" stop-color="#140d2e"/>
+              <stop offset="100%" stop-color="#090616"/>
+            </radialGradient>
+
+            <!-- Moon Glow -->
+            <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff8db" stop-opacity="0.9"/>
+              <stop offset="50%" stop-color="#fed7aa" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#fca5d5" stop-opacity="0"/>
+            </radialGradient>
+
+            <!-- Lamp Warm Beam -->
+            <radialGradient id="lampCone" cx="15%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#fef08a" stop-opacity="0.4"/>
+              <stop offset="40%" stop-color="#fed7aa" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#fed7aa" stop-opacity="0"/>
+            </radialGradient>
+
+            <!-- Desk Gradient -->
+            <linearGradient id="deskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#241945"/>
+              <stop offset="100%" stop-color="#110b24"/>
+            </linearGradient>
+
+            <!-- Fluffy Cat Cushion Gradient -->
+            <linearGradient id="cushionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3b2760"/>
+              <stop offset="100%" stop-color="#23173d"/>
+            </linearGradient>
+
+            <!-- Cat Fur Gradients -->
+            <linearGradient id="catFurWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#f5e8e4"/>
+            </linearGradient>
+            
+            <linearGradient id="catPatch" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c4b5fd"/>
+              <stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+
+            <!-- Drop Shadow Filter -->
+            <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- 1. Window Frame & Night Sky -->
+          <rect x="25" y="20" width="550" height="320" rx="20" fill="url(#skyGrad)" stroke="rgba(244, 114, 182, 0.25)" stroke-width="2"/>
+          
+          <!-- Stars in the sky -->
+          <g opacity="0.8">
+            <circle cx="70" cy="65" r="1.5" fill="#fef08a" class="twinkle-star"/>
+            <circle cx="120" cy="110" r="1.2" fill="#fff" class="twinkle-star"/>
+            <circle cx="180" cy="50" r="2" fill="#fca5d5" class="twinkle-star"/>
+            <circle cx="230" cy="95" r="1.5" fill="#fff" class="twinkle-star"/>
+            <circle cx="340" cy="60" r="1.8" fill="#fef08a" class="twinkle-star"/>
+            <circle cx="410" cy="115" r="1.5" fill="#67e8f9" class="twinkle-star"/>
+            <circle cx="470" cy="75" r="2" fill="#fca5d5" class="twinkle-star"/>
+            <circle cx="530" cy="120" r="1.5" fill="#fff" class="twinkle-star"/>
+          </g>
+
+          <!-- Crescent Cat Moon -->
+          <circle cx="460" cy="80" r="28" fill="url(#moonGlow)"/>
+          <path d="M465 58 C450 65 442 85 450 102 C435 95 432 72 448 60 C452 56 459 55 465 58 Z" fill="#fef08a" filter="url(#softGlow)"/>
+
+          <!-- City Skyline Silhouette -->
+          <path d="M25 310 L45 280 L65 280 L65 310 L95 265 L125 265 L125 310 L145 290 L170 290 L170 310 L210 250 L235 250 L235 310 L280 275 L310 275 L310 310 L350 260 L380 260 L380 310 L430 285 L460 285 L460 310 L490 270 L520 270 L520 310 L575 295 L575 340 L25 340 Z" fill="#120b24" opacity="0.85"/>
+          
+          <!-- City Windows Tiny Lights -->
+          <g fill="#fef08a" opacity="0.6">
+            <rect x="100" y="275" width="3" height="4" rx="1"/>
+            <rect x="108" y="275" width="3" height="4" rx="1"/>
+            <rect x="100" y="285" width="3" height="4" rx="1"/>
+            <rect x="218" y="260" width="3" height="4" rx="1"/>
+            <rect x="225" y="260" width="3" height="4" rx="1"/>
+            <rect x="225" y="270" width="3" height="4" rx="1"/>
+            <rect x="360" y="270" width="3" height="4" rx="1"/>
+            <rect x="368" y="270" width="3" height="4" rx="1"/>
+            <rect x="500" y="280" width="3" height="4" rx="1"/>
+            <rect x="508" y="280" width="3" height="4" rx="1"/>
+          </g>
+
+          <!-- Shooting Star -->
+          <line x1="180" y1="50" x2="240" y2="85" stroke="url(#moonGlow)" stroke-width="2" stroke-linecap="round" class="svg-shooting-star"/>
+
+          <!-- Window Sill Frame Inner Lines -->
+          <line x1="290" y1="20" x2="290" y2="340" stroke="rgba(244, 114, 182, 0.2)" stroke-width="3"/>
+          <line x1="25" y1="180" x2="575" y2="180" stroke="rgba(244, 114, 182, 0.15)" stroke-width="2"/>
+
+          <!-- Hanging Glowing Stars on Strings -->
+          <g class="hanging-star-1 svg-clickable" id="starHotspot1" data-action="star">
+            <line x1="90" y1="20" x2="90" y2="90" stroke="rgba(254, 240, 138, 0.5)" stroke-dasharray="3,3"/>
+            <polygon points="90,82 93,89 100,90 95,95 96,102 90,98 84,102 85,95 80,90 87,89" fill="#fef08a" filter="url(#softGlow)"/>
+          </g>
+          <g class="hanging-star-2 svg-clickable" id="starHotspot2" data-action="star">
+            <line x1="160" y1="20" x2="160" y2="120" stroke="rgba(244, 114, 182, 0.5)" stroke-dasharray="3,3"/>
+            <polygon points="160,112 163,119 170,120 165,125 166,132 160,128 154,132 155,125 150,120 157,119" fill="#fca5d5" filter="url(#softGlow)"/>
+          </g>
+          <g class="hanging-star-3 svg-clickable" id="starHotspot3" data-action="star">
+            <line x1="495" y1="20" x2="495" y2="105" stroke="rgba(254, 240, 138, 0.5)" stroke-dasharray="3,3"/>
+            <polygon points="495,97 498,104 505,105 500,110 501,117 495,113 489,117 490,110 485,105 492,104" fill="#fef08a" filter="url(#softGlow)"/>
+          </g>
+
+          <!-- 2. Desk Surface -->
+          <rect x="10" y="335" width="580" height="155" rx="14" fill="url(#deskGrad)" stroke="rgba(244, 114, 182, 0.2)" stroke-width="2"/>
+          <line x1="10" y1="337" x2="590" y2="337" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5"/>
+
+          <!-- 3. Cozy Desk Lamp (Left) -->
+          <g id="lampHotspot" class="svg-clickable" data-action="lamp">
+            <!-- Warm Light Beam Overlay -->
+            <ellipse cx="140" cy="385" rx="150" ry="85" fill="url(#lampCone)"/>
+            <!-- Lamp Base & Rod -->
+            <path d="M60 425 Q75 423 90 425 L86 429 L64 429 Z" fill="#e2d4f0"/>
+            <path d="M75 423 C75 360 45 320 85 285" fill="none" stroke="#e2d4f0" stroke-width="4" stroke-linecap="round"/>
+            <!-- Lamp Shade -->
+            <path d="M75 285 L98 275 L108 295 L80 302 Z" fill="#fca5d5" stroke="#f472b6" stroke-width="1.5"/>
+            <!-- Bulb Glow -->
+            <circle cx="94" cy="294" r="7" fill="#fef08a" filter="url(#softGlow)"/>
+          </g>
+
+          <!-- 4. Digital Desk Clock (Real-time Live Synced) -->
+          <g id="clockHotspot" class="svg-clickable" data-action="clock">
+            <rect x="42" y="360" width="84" height="46" rx="8" fill="#130d29" stroke="rgba(103, 232, 249, 0.35)" stroke-width="1.5"/>
+            <!-- Ticking Digital Digits -->
+            <text id="svgClockHour" x="58" y="388" font-family="'Share Tech Mono', monospace" font-size="19" font-weight="700" fill="#67e8f9" text-anchor="middle" filter="url(#softGlow)">20</text>
+            <text x="68" y="386" font-family="'Share Tech Mono', monospace" font-size="17" font-weight="700" fill="#67e8f9" text-anchor="middle" class="clock-colon">:</text>
+            <text id="svgClockMin" x="85" y="388" font-family="'Share Tech Mono', monospace" font-size="19" font-weight="700" fill="#67e8f9" text-anchor="middle" filter="url(#softGlow)">48</text>
+            <text x="84" y="399" font-family="'Nunito', sans-serif" font-size="5" fill="#a5b4fc" text-anchor="middle">Good things take time ♡</text>
+          </g>
+
+          <!-- 5. Pastel Books Stack -->
+          <g id="booksHotspot" class="svg-clickable" data-modal="booksModal">
+            <!-- Book 4: Better Me -->
+            <rect x="145" y="416" width="76" height="15" rx="3" fill="#fda4af" stroke="#fb7185" stroke-width="1"/>
+            <text x="183" y="427" font-family="'Quicksand', sans-serif" font-size="8" font-weight="700" fill="#4c0519" text-anchor="middle">Better Me ♡</text>
+            <!-- Book 3: Design -->
+            <rect x="148" y="401" width="72" height="15" rx="3" fill="#c084fc" stroke="#a855f7" stroke-width="1"/>
+            <text x="184" y="412" font-family="'Quicksand', sans-serif" font-size="8" font-weight="700" fill="#2e1065" text-anchor="middle">Design</text>
+            <!-- Book 2: Code -->
+            <rect x="146" y="386" width="74" height="15" rx="3" fill="#93c5fd" stroke="#60a5fa" stroke-width="1"/>
+            <text x="183" y="397" font-family="'Quicksand', sans-serif" font-size="8" font-weight="700" fill="#1e3a8a" text-anchor="middle">Code</text>
+            <!-- Book 1: Ideas -->
+            <rect x="150" y="371" width="68" height="15" rx="3" fill="#6ee7b7" stroke="#34d399" stroke-width="1"/>
+            <text x="184" y="382" font-family="'Quicksand', sans-serif" font-size="8" font-weight="700" fill="#064e3b" text-anchor="middle">Ideas</text>
+          </g>
+
+          <!-- 6. Steaming Ceramic Mug with Cat Face -->
+          <g id="mugHotspot" class="svg-clickable" data-action="mug">
+            <!-- Mug Body -->
+            <rect x="235" y="385" width="28" height="34" rx="6" fill="#fff" stroke="#f472b6" stroke-width="1.5"/>
+            <!-- Mug Handle -->
+            <path d="M263 392 Q272 392 272 402 Q272 412 263 412" fill="none" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Cat face on mug -->
+            <circle cx="245" cy="400" r="1.2" fill="#ec4899"/>
+            <circle cx="253" cy="400" r="1.2" fill="#ec4899"/>
+            <path d="M247 404 Q249 406 251 404" stroke="#ec4899" stroke-width="1" fill="none"/>
+            <!-- Animated Rising Steam -->
+            <path d="M243 378 Q247 372 243 366" stroke="rgba(255, 240, 245, 0.6)" stroke-width="1.8" stroke-linecap="round" fill="none" class="steam-path-1"/>
+            <path d="M249 378 Q245 370 249 362" stroke="rgba(255, 240, 245, 0.6)" stroke-width="1.8" stroke-linecap="round" fill="none" class="steam-path-2"/>
+            <path d="M255 378 Q259 372 255 366" stroke="rgba(255, 240, 245, 0.6)" stroke-width="1.8" stroke-linecap="round" fill="none" class="steam-path-3"/>
+          </g>
+
+          <!-- 7. Open Laptop on the Right -->
+          <g id="laptopHotspot" class="svg-clickable" data-modal="laptopModal">
+            <!-- Screen back & bezel -->
+            <polygon points="460,345 545,335 545,410 460,425" fill="#1e153b" stroke="rgba(244, 114, 182, 0.4)" stroke-width="1.5"/>
+            <!-- Screen glow -->
+            <polygon points="465,350 540,341 540,404 465,418" fill="#130b29"/>
+            <!-- Glowing code lines on screen -->
+            <line x1="472" y1="365" x2="510" y2="360" stroke="#f472b6" stroke-width="2"/>
+            <line x1="472" y1="375" x2="528" y2="368" stroke="#67e8f9" stroke-width="2"/>
+            <line x1="472" y1="385" x2="498" y2="382" stroke="#fef08a" stroke-width="2"/>
+            <line x1="472" y1="395" x2="520" y2="390" stroke="#a78bfa" stroke-width="2"/>
+            <!-- Glowing Cat Logo on lid/screen corner -->
+            <circle cx="525" cy="353" r="4" fill="#fca5d5" opacity="0.8" filter="url(#softGlow)"/>
+            <!-- Laptop Base & Keyboard -->
+            <polygon points="440,428 460,425 545,410 565,422 440,432" fill="#2c1f4e" stroke="rgba(244, 114, 182, 0.3)" stroke-width="1"/>
+            <polygon points="450,430 462,425 538,414 552,422" fill="#160e2a"/>
+          </g>
+
+          <!-- 8. THE COZY ANIMATED SLEEPING CAT (CENTER) -->
+          <g id="catHotspot" class="svg-clickable" data-action="cat">
+            <!-- Plush Cushion / Blanket -->
+            <ellipse cx="320" cy="428" rx="88" ry="32" fill="url(#cushionGrad)" stroke="rgba(244, 114, 182, 0.25)" stroke-width="2"/>
+            <ellipse cx="318" cy="425" rx="78" ry="24" fill="#2d1c4a" opacity="0.6"/>
+
+            <!-- Curled Cat Tail with slow wag -->
+            <path d="M228 402 C210 395 198 412 215 422 C232 432 258 428 275 422" fill="none" stroke="url(#catFurWhite)" stroke-width="15" stroke-linecap="round" class="cat-tail-path"/>
+            <!-- Tail Patch -->
+            <path d="M214 415 C210 405 204 412 215 422" fill="none" stroke="url(#catPatch)" stroke-width="14" stroke-linecap="round" class="cat-tail-path"/>
+
+            <!-- Cat Breathing Body Group -->
+            <g class="cat-breathe-group">
+              <!-- Chubby Body Oval -->
+              <ellipse cx="315" cy="405" rx="66" ry="44" fill="url(#catFurWhite)" stroke="rgba(244, 114, 182, 0.2)" stroke-width="1"/>
+              
+              <!-- Cute Calico / Lilac Patches on Body -->
+              <path d="M280 375 C310 365 330 380 325 405 C295 410 270 395 280 375 Z" fill="url(#catPatch)" opacity="0.85"/>
+              <ellipse cx="360" cy="415" rx="20" ry="18" fill="#fed7aa" opacity="0.6"/>
+
+              <!-- Tucked Front Paws -->
+              <ellipse cx="365" cy="430" rx="14" ry="9" fill="#fff" stroke="#f0e2d8" stroke-width="1"/>
+              <ellipse cx="346" cy="433" rx="14" ry="9" fill="#fff" stroke="#f0e2d8" stroke-width="1"/>
+
+              <!-- Cat Head -->
+              <g id="catHead">
+                <!-- Head Circle -->
+                <circle cx="345" cy="365" r="34" fill="url(#catFurWhite)" stroke="rgba(244, 114, 182, 0.15)" stroke-width="1"/>
+                <!-- Head Patch -->
+                <path d="M320 345 C335 335 365 338 358 360 C340 365 320 360 320 345 Z" fill="url(#catPatch)" opacity="0.85"/>
+
+                <!-- Left Ear with Twitch -->
+                <g class="cat-left-ear">
+                  <polygon points="320,344 326,312 344,338" fill="#fff"/>
+                  <polygon points="323,342 328,318 340,338" fill="#fca5d5"/>
+                </g>
+
+                <!-- Right Ear with Twitch -->
+                <g class="cat-right-ear">
+                  <polygon points="352,338 370,314 374,345" fill="#fff"/>
+                  <polygon points="356,338 368,320 371,343" fill="#fca5d5"/>
+                </g>
+
+                <!-- Sleeping Face Features -->
+                <!-- Rosy Cheeks -->
+                <ellipse cx="325" cy="376" rx="6" ry="3.5" fill="#fca5d5" opacity="0.75"/>
+                <ellipse cx="365" cy="376" rx="6" ry="3.5" fill="#fca5d5" opacity="0.75"/>
+
+                <!-- Closed Curved Sleeping Eyelashes -->
+                <path d="M322 368 Q327 362 333 368" fill="none" stroke="#2a1645" stroke-width="2" stroke-linecap="round"/>
+                <path d="M356 368 Q361 362 367 368" fill="none" stroke="#2a1645" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- Tiny Pink Nose -->
+                <polygon points="344,373 346,373 345,376" fill="#f472b6"/>
+
+                <!-- Sweet Cat Mouth :3 -->
+                <path d="M341 378 Q345 382 345 378 Q345 382 349 378" fill="none" stroke="#2a1645" stroke-width="1.8" stroke-linecap="round"/>
+
+                <!-- Cute Whiskers -->
+                <line x1="316" y1="373" x2="298" y2="370" stroke="rgba(42, 22, 69, 0.4)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="315" y1="377" x2="296" y2="380" stroke="rgba(42, 22, 69, 0.4)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="373" y1="373" x2="391" y2="370" stroke="rgba(42, 22, 69, 0.4)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="374" y1="377" x2="393" y2="380" stroke="rgba(42, 22, 69, 0.4)" stroke-width="1.2" stroke-linecap="round"/>
+              </g>
+            </g>
+
+            <!-- Floating Zzz animation -->
+            <g font-family="'Quicksand', sans-serif" font-weight="700" fill="#fca5d5">
+              <text x="365" y="325" font-size="14" class="zzz-1">z</text>
+              <text x="382" y="308" font-size="18" class="zzz-2">Z</text>
+              <text x="402" y="288" font-size="22" class="zzz-3">z</text>
+            </g>
+          </g>
+        </svg>
       </div>
+    </div>
 
-      <!-- Accessible Semantic H1 for Search Engines and Screen Readers -->
-      <h1 class="sr-only">Coming Very Soon :3 — Rachelian is building something special!</h1>
-      <p class="sr-only">Something cute and amazing is on the way! I'm currently working hard to bring you a new experience. Stay tuned — it'll be worth the wait!</p>
-
-      <!-- Interactive Hotspots Plane -->
-      <div class="hero-interactive-plane" id="hotspotPlane">
-        <!-- Brand & Lofi Mirror Targets -->
-        <button class="hotspot hotspot-brand" data-action="brand" aria-label="Rachelian avatar"></button>
-        <button class="hotspot hotspot-lofi" data-action="lofi-toggle" aria-label="Toggle Lofi"></button>
-
-        <!-- 4 Primary Action Buttons -->
-        <button class="hotspot hotspot-btn hotspot-btn-portfolio" data-modal="portfolioModal" aria-label="Open Portfolio Preview">
-          <span class="sr-only">Portfolio</span>
-        </button>
-        <button class="hotspot hotspot-btn hotspot-btn-projects" data-modal="projectsModal" aria-label="Open Projects Status">
-          <span class="sr-only">Projects</span>
-        </button>
-        <button class="hotspot hotspot-btn hotspot-btn-blog" data-modal="blogModal" aria-label="Open Blog Preview">
-          <span class="sr-only">Blog</span>
-        </button>
-        <button class="hotspot hotspot-btn hotspot-btn-more" data-modal="moreModal" aria-label="Open More Surprises">
-          <span class="sr-only">And more...</span>
-        </button>
-
-        <!-- Objects in the Room -->
-        <button class="hotspot hotspot-clock" data-action="clock" aria-label="Digital desk clock showing live time"></button>
-        <button class="hotspot hotspot-cat-left" data-action="cat-left" aria-label="Pet the sleeping kitten"></button>
-        <button class="hotspot hotspot-books" data-modal="booksModal" aria-label="Examine stack of books"></button>
-        <button class="hotspot hotspot-mug" data-action="mug" aria-label="Sip warm latte"></button>
-        <button class="hotspot hotspot-cat-right" data-action="cat-right" aria-label="Pet the cozy cat next to Rachelian"></button>
-        <button class="hotspot hotspot-heart" data-action="cat-right" aria-label="Floating heart"></button>
-        <button class="hotspot hotspot-laptop" data-modal="laptopModal" aria-label="Look at laptop screen"></button>
-        <button class="hotspot hotspot-star-1" data-action="star" aria-label="Hanging star"></button>
-        <button class="hotspot hotspot-star-2" data-action="star" aria-label="Hanging star"></button>
-        <button class="hotspot hotspot-star-3" data-action="star" aria-label="Hanging star"></button>
-        <button class="hotspot hotspot-balloon" data-action="balloon" aria-label="Floating cat balloon outside window"></button>
-        <button class="hotspot hotspot-note" data-modal="todoModal" aria-label="Read To-Do Note"></button>
-      </div>
-    </main>
-
-    <!-- Scroll prompt at bottom of hero -->
-    <a href="#cookingSection" class="hero-scroll-prompt" aria-label="Scroll down to explore what is being built">
+    <!-- Bottom Scroll Indicator -->
+    <a href="#cookingSection" class="scroll-prompt" aria-label="Scroll down to explore what is being built">
       <span>Scroll for a little magic</span>
-      <div class="mouse-scroll-icon" aria-hidden="true">
-        <div class="mouse-scroll-wheel"></div>
+      <div class="mouse-icon" aria-hidden="true">
+        <div class="mouse-wheel"></div>
       </div>
     </a>
-  </header>
+  </main>
 
   <!-- ==========================================================================
        SECTION 2: "CURRENTLY COOKING..."
@@ -1747,7 +1981,7 @@
         <span><span class="kbd-chip">Esc</span> Close Windows</span>
       </div>
       <p class="footer-text">
-        Ready for deployment on Cloudflare Pages · 100% Static &amp; Framework-Free · Fast, Accessible &amp; Lightweight
+        Ready for deployment on Cloudflare Pages · 100% Vector &amp; Framework-Free · Fast, Accessible &amp; Lightweight
       </p>
     </div>
   </footer>
@@ -1825,10 +2059,10 @@
       <div class="modal-body">
         <p>You found one of the secret corners! Here are a few little hidden treats on this page:</p>
         <ul style="margin: 12px 0 12px 20px; color: var(--cream)">
-          <li>✦ Click both cats to hear them purr and meow</li>
-          <li>✦ Click the clock to check your real local time</li>
+          <li>✦ Click the sleeping cat to hear it purr and meow</li>
+          <li>✦ Click the desk clock to check your real local time</li>
           <li>✦ Click the mug for extra hot steam</li>
-          <li>✦ Click the hanging stars for star chimes</li>
+          <li>✦ Click the hanging stars for celestial chimes</li>
           <li>✦ Try the keyboard shortcuts (<span class="kbd-chip">Space</span>, <span class="kbd-chip">C</span>)</li>
         </ul>
       </div>
@@ -1883,70 +2117,43 @@
     </div>
   </div>
 
-  <!-- 7. To-Do Note Modal -->
-  <div id="todoModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="todoTitle">
-    <div class="modal-card">
-      <button class="modal-close-btn" aria-label="Close dialog">✕</button>
-      <div class="modal-header">
-        <span class="modal-icon">📌</span>
-        <h3 id="todoTitle" class="modal-title">To Do (Later)</h3>
-      </div>
-      <div class="modal-body">
-        <p>Interactive corkboard note (changes are saved to your browser):</p>
-        <ul class="todo-list" id="todoList">
-          <li class="todo-item"><input type="checkbox" id="todo1" checked><label for="todo1">Be happy</label></li>
-          <li class="todo-item"><input type="checkbox" id="todo2" checked><label for="todo2">Keep creating</label></li>
-          <li class="todo-item"><input type="checkbox" id="todo3" checked><label for="todo3">See you soon ♡</label></li>
-          <li class="todo-item"><input type="checkbox" id="todo4"><label for="todo4">Drink some warm water</label></li>
-          <li class="todo-item"><input type="checkbox" id="todo5"><label for="todo5">Pet the cat again :3</label></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   <!-- ==========================================================================
        JAVASCRIPT: ENGINE & INTERACTIONS
        ========================================================================== -->
   <script>
     /* ========================================================================
-       1. CORE INITIALIZATION & LOADER
+       1. INITIALIZATION & LOADER
        ======================================================================== */
     window.addEventListener('DOMContentLoaded', () => {
-      // Hide loader after smooth perceived transition (~450ms)
       const loader = document.getElementById('loader');
       setTimeout(() => {
-        if (loader) {
-          loader.classList.add('hidden');
-        }
-      }, 450);
+        if (loader) loader.classList.add('hidden');
+      }, 420);
 
       initLiveClock();
       initParticles();
-      initSkyCanvas();
       initAudioEngine();
-      initHotspots();
+      initInteractiveScene();
       initModals();
       initQuoteRoller();
       initVIPForm();
       initCursorSparkles();
       initKeyboardShortcuts();
-      initSavedTodos();
     });
 
     /* ========================================================================
        2. REAL-TIME DIGITAL DESK CLOCK
        ======================================================================== */
     function initLiveClock() {
-      const hourEl = document.getElementById('clockHour');
-      const minEl = document.getElementById('clockMin');
-      if (!hourEl || !minEl) return;
+      const svgHour = document.getElementById('svgClockHour');
+      const svgMin = document.getElementById('svgClockMin');
 
       function updateClock() {
         const now = new Date();
         const hrs = String(now.getHours()).padStart(2, '0');
         const mins = String(now.getMinutes()).padStart(2, '0');
-        hourEl.textContent = hrs;
-        minEl.textContent = mins;
+        if (svgHour) svgHour.textContent = hrs;
+        if (svgMin) svgMin.textContent = mins;
       }
 
       updateClock();
@@ -1954,7 +2161,7 @@
     }
 
     /* ========================================================================
-       3. AMBIENT PARTICLE CANVAS (SAKURA PETALS & DUST)
+       3. AMBIENT PARTICLE CANVAS (SAKURA PETALS & STARDUST)
        ======================================================================== */
     function initParticles() {
       const canvas = document.getElementById('particleCanvas');
@@ -1962,10 +2169,7 @@
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
 
-      // Check prefers-reduced-motion
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        return;
-      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       let width = (canvas.width = window.innerWidth);
       let height = (canvas.height = window.innerHeight);
@@ -1975,20 +2179,19 @@
         height = canvas.height = window.innerHeight;
       });
 
-      // Particle definition
-      const particleCount = width < 768 ? 24 : 50;
+      const particleCount = width < 768 ? 20 : 45;
       const particles = [];
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          size: Math.random() * 3.5 + 1.5,
-          speedX: Math.random() * 0.5 - 0.25 + 0.3, // slight breeze to the right
-          speedY: Math.random() * 0.7 + 0.3,       // gently falling
+          size: Math.random() * 3 + 1.5,
+          speedX: Math.random() * 0.4 - 0.2 + 0.25,
+          speedY: Math.random() * 0.6 + 0.3,
           rotation: Math.random() * 360,
           rotationSpeed: (Math.random() - 0.5) * 1.5,
-          opacity: Math.random() * 0.55 + 0.25,
+          opacity: Math.random() * 0.5 + 0.25,
           type: Math.random() > 0.45 ? 'petal' : 'star'
         });
       }
@@ -2004,13 +2207,11 @@
           ctx.globalAlpha = p.opacity;
 
           if (p.type === 'petal') {
-            // Sakura petal shape
             ctx.fillStyle = '#fca5d5';
             ctx.beginPath();
             ctx.ellipse(0, 0, p.size * 2, p.size, 0, 0, Math.PI * 2);
             ctx.fill();
           } else {
-            // Star dust sparkle
             ctx.fillStyle = '#fef08a';
             ctx.beginPath();
             ctx.arc(0, 0, p.size * 0.7, 0, Math.PI * 2);
@@ -2019,12 +2220,10 @@
 
           ctx.restore();
 
-          // Update physics
           p.x += p.speedX;
           p.y += p.speedY;
           p.rotation += p.rotationSpeed;
 
-          // Wrap edges
           if (p.y > height + 10) {
             p.y = -10;
             p.x = Math.random() * width;
@@ -2036,99 +2235,19 @@
 
         requestAnimationFrame(draw);
       }
-
       requestAnimationFrame(draw);
     }
 
     /* ========================================================================
-       4. WINDOW SKY SHOOTING STAR CANVAS
-       ======================================================================== */
-    function initSkyCanvas() {
-      const canvas = document.getElementById('skyCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        return;
-      }
-
-      let width = (canvas.width = canvas.offsetWidth);
-      let height = (canvas.height = canvas.offsetHeight);
-
-      window.addEventListener('resize', () => {
-        width = canvas.width = canvas.offsetWidth;
-        height = canvas.height = canvas.offsetHeight;
-      });
-
-      let shootingStar = null;
-
-      function spawnShootingStar() {
-        shootingStar = {
-          x: Math.random() * (width * 0.7) + width * 0.2,
-          y: Math.random() * (height * 0.3),
-          len: Math.random() * 80 + 60,
-          speed: Math.random() * 8 + 12,
-          angle: (Math.PI / 4) + (Math.random() - 0.5) * 0.2,
-          opacity: 1
-        };
-      }
-
-      // Spawn every 10 to 18 seconds
-      function scheduleNextStar() {
-        const delay = Math.random() * 8000 + 10000;
-        setTimeout(() => {
-          spawnShootingStar();
-          scheduleNextStar();
-        }, delay);
-      }
-      scheduleNextStar();
-
-      function drawSky() {
-        ctx.clearRect(0, 0, width, height);
-
-        if (shootingStar) {
-          const tailX = shootingStar.x - Math.cos(shootingStar.angle) * shootingStar.len;
-          const tailY = shootingStar.y - Math.sin(shootingStar.angle) * shootingStar.len;
-
-          const grad = ctx.createLinearGradient(shootingStar.x, shootingStar.y, tailX, tailY);
-          grad.addColorStop(0, `rgba(255, 255, 255, ${shootingStar.opacity})`);
-          grad.addColorStop(0.3, `rgba(244, 114, 182, ${shootingStar.opacity * 0.7})`);
-          grad.addColorStop(1, 'rgba(192, 132, 252, 0)');
-
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.moveTo(shootingStar.x, shootingStar.y);
-          ctx.lineTo(tailX, tailY);
-          ctx.stroke();
-
-          // Move
-          shootingStar.x += Math.cos(shootingStar.angle) * shootingStar.speed;
-          shootingStar.y += Math.sin(shootingStar.angle) * shootingStar.speed;
-          shootingStar.opacity -= 0.02;
-
-          if (shootingStar.opacity <= 0 || shootingStar.x > width || shootingStar.y > height) {
-            shootingStar = null;
-          }
-        }
-
-        requestAnimationFrame(drawSky);
-      }
-      requestAnimationFrame(drawSky);
-    }
-
-    /* ========================================================================
-       5. DUAL-MODE LO-FI AUDIO ENGINE (SYNTH + STREAM) & SOUND SYNTHESIS
+       4. DUAL-MODE LO-FI AUDIO ENGINE & WEB AUDIO SYNTHESIS
        ======================================================================== */
     let audioCtx = null;
     let sfxGainNode = null;
     let synthInterval = null;
     let isSynthPlaying = false;
     let isStreamPlaying = false;
-    let currentMode = 'synth'; // 'synth' or 'stream'
+    let currentMode = 'synth';
 
-    // Verified legal public SomaFM Groove Salad stream (HTTPS, commercial-free, CORS *)
     const LOFI_STREAM_URL = 'https://ice1.somafm.com/groovesalad-128-mp3';
 
     function ensureAudioContext() {
@@ -2145,17 +2264,15 @@
       }
     }
 
-    // Procedural Lo-Fi Sound Effects
     function playCutePurr() {
       ensureAudioContext();
       if (!audioCtx) return;
 
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
+      const now = audioCtx.currentTime;
 
       osc.type = 'triangle';
-      // Purr / meow pitch glide
-      const now = audioCtx.currentTime;
       osc.frequency.setValueAtTime(440, now);
       osc.frequency.exponentialRampToValueAtTime(580, now + 0.15);
       osc.frequency.exponentialRampToValueAtTime(320, now + 0.45);
@@ -2175,7 +2292,7 @@
       ensureAudioContext();
       if (!audioCtx) return;
 
-      const notes = [1046.5, 1318.5, 1567.9, 2093.0]; // C6, E6, G6, C7
+      const notes = [1046.5, 1318.5, 1567.9, 2093.0];
       notes.forEach((freq, idx) => {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
@@ -2217,7 +2334,6 @@
       osc.stop(now + 0.09);
     }
 
-    // Procedural Ambient Lo-Fi Synth Generator
     let synthMasterGain = null;
     function startDreamSynth() {
       ensureAudioContext();
@@ -2229,7 +2345,6 @@
       synthMasterGain.gain.setValueAtTime(slider ? parseFloat(slider.value) * 0.35 : 0.25, audioCtx.currentTime);
       synthMasterGain.connect(audioCtx.destination);
 
-      // Pentatonic warm chord voicings
       const chordProgression = [
         [155.56, 196.00, 233.08, 311.13, 392.00], // Ebmaj7
         [130.81, 155.56, 196.00, 261.63, 311.13], // Cm7
@@ -2251,12 +2366,10 @@
           osc.type = i % 2 === 0 ? 'sine' : 'triangle';
           osc.frequency.setValueAtTime(freq, now);
 
-          // Warm lowpass filter to emulate vintage electric piano
           filter.type = 'lowpass';
           filter.frequency.setValueAtTime(680, now);
           filter.Q.setValueAtTime(1.5, now);
 
-          // Soft attack and prolonged decay
           gain.gain.setValueAtTime(0.001, now + (i * 0.04));
           gain.gain.linearRampToValueAtTime(0.12, now + (i * 0.04) + 0.6);
           gain.gain.exponentialRampToValueAtTime(0.0001, now + 4.8);
@@ -2288,7 +2401,6 @@
       }
     }
 
-    // Initialize Audio UI Controls
     function initAudioEngine() {
       const lofiPillBtn = document.getElementById('lofiPillBtn');
       const lofiPanel = document.getElementById('lofiPanel');
@@ -2303,14 +2415,12 @@
 
       if (!lofiPillBtn || !lofiPanel) return;
 
-      // Toggle dropdown panel
       lofiPillBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         const isOpen = lofiPanel.classList.toggle('active');
         lofiPillBtn.setAttribute('aria-expanded', isOpen);
       });
 
-      // Close dropdown when clicking outside
       document.addEventListener('click', (e) => {
         if (!lofiPanel.contains(e.target) && !lofiPillBtn.contains(e.target)) {
           lofiPanel.classList.remove('active');
@@ -2318,13 +2428,12 @@
         }
       });
 
-      // Switch Source: Dream Synth
       srcSynthBtn.addEventListener('click', () => {
         if (currentMode === 'synth') return;
         currentMode = 'synth';
         srcSynthBtn.classList.add('active');
         srcStreamBtn.classList.remove('active');
-        lofiNote.textContent = 'Generative pentatonic chords & soft vinyl crackle';
+        lofiNote.textContent = 'Generative pentatonic chords & soft vinyl warmth';
 
         if (isStreamPlaying) {
           audioEl.pause();
@@ -2334,7 +2443,6 @@
         }
       });
 
-      // Switch Source: Live Radio Stream
       srcStreamBtn.addEventListener('click', () => {
         if (currentMode === 'stream') return;
         currentMode = 'stream';
@@ -2348,7 +2456,6 @@
         }
       });
 
-      // Play / Pause Master Toggle
       function toggleAudio() {
         ensureAudioContext();
 
@@ -2414,7 +2521,6 @@
 
       lofiPlayToggle.addEventListener('click', toggleAudio);
 
-      // Volume slider listener
       if (volumeSlider) {
         volumeSlider.addEventListener('input', (e) => {
           const val = parseFloat(e.target.value);
@@ -2427,98 +2533,106 @@
     }
 
     /* ========================================================================
-       6. INTERACTIVE HOTSPOTS & EASTER EGGS
+       5. INTERACTIVE SCENE OBJECTS
        ======================================================================== */
-    function initHotspots() {
-      const plane = document.getElementById('hotspotPlane');
-      if (!plane) return;
-
-      plane.addEventListener('click', (e) => {
-        const target = e.target.closest('.hotspot');
-        if (!target) return;
-
-        const action = target.dataset.action;
-        const modalId = target.dataset.modal;
-
-        if (modalId) {
-          openModal(modalId);
-          playSoftPop();
-          return;
-        }
-
-        if (action === 'cat-left') {
+    function initInteractiveScene() {
+      // Cat Click / Petting
+      const catEl = document.getElementById('catHotspot');
+      if (catEl) {
+        catEl.addEventListener('click', (e) => {
           playCutePurr();
-          showSpeechBubble(target, 'nyaa~ don\'t wake me up yet :3');
+          showSceneBubble(catEl, 'purrrrr... sleeping warmly :3 ♡');
           spawnSparkleBurst(e.clientX, e.clientY);
-        } else if (action === 'cat-right') {
-          playCutePurr();
-          showSpeechBubble(target, 'purrrrr... sweet dreams active ♡');
-          spawnSparkleBurst(e.clientX, e.clientY);
-        } else if (action === 'mug') {
+        });
+      }
+
+      // Mug Click
+      const mugEl = document.getElementById('mugHotspot');
+      if (mugEl) {
+        mugEl.addEventListener('click', (e) => {
           playSoftPop();
-          showSpeechBubble(target, 'Warm vanilla latte with marshmallows ☕');
-        } else if (action === 'clock') {
+          showSceneBubble(mugEl, 'Hot vanilla cocoa with marshmallows ☕');
+        });
+      }
+
+      // Clock Click
+      const clockEl = document.getElementById('clockHotspot');
+      if (clockEl) {
+        clockEl.addEventListener('click', (e) => {
           playSoftPop();
           const now = new Date();
-          showSpeechBubble(target, `Local time: ${now.toLocaleTimeString()} ♡`);
-        } else if (action === 'star') {
-          playStarChime();
-          showSpeechBubble(target, 'A wish was made! ✨');
-          spawnSparkleBurst(e.clientX, e.clientY);
-        } else if (action === 'balloon') {
+          showSceneBubble(clockEl, `Current time: ${now.toLocaleTimeString()} ♡`);
+        });
+      }
+
+      // Lamp Click
+      const lampEl = document.getElementById('lampHotspot');
+      if (lampEl) {
+        lampEl.addEventListener('click', () => {
           playSoftPop();
-          showSpeechBubble(target, 'Floating gently in the night breeze 🎈');
-        } else if (action === 'lofi-toggle') {
-          const lofiPillBtn = document.getElementById('lofiPillBtn');
-          if (lofiPillBtn) lofiPillBtn.click();
-        } else if (action === 'brand') {
-          playSoftPop();
-          showSpeechBubble(target, 'Rachelian ♡ Building something special');
+          showSceneBubble(lampEl, 'A cozy warm reading light ✨');
+        });
+      }
+
+      // Hanging Stars Click
+      ['starHotspot1', 'starHotspot2', 'starHotspot3'].forEach((id) => {
+        const star = document.getElementById(id);
+        if (star) {
+          star.addEventListener('click', (e) => {
+            playStarChime();
+            showSceneBubble(star, 'A wish was made! ✨');
+            spawnSparkleBurst(e.clientX, e.clientY);
+          });
         }
       });
     }
 
-    function showSpeechBubble(targetEl, text) {
-      // Remove any existing active bubbles
-      const existing = document.querySelector('.speech-bubble-pop');
+    function showSceneBubble(targetEl, text) {
+      const existing = document.querySelector('.scene-speech-bubble');
       if (existing) existing.remove();
 
       const bubble = document.createElement('div');
-      bubble.className = 'speech-bubble-pop';
+      bubble.className = 'scene-speech-bubble';
       bubble.textContent = text;
 
-      const stage = document.querySelector('.hero-stage-wrapper');
-      if (!stage) return;
+      const card = document.getElementById('sceneCard');
+      if (!card) return;
 
       const rect = targetEl.getBoundingClientRect();
-      const stageRect = stage.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
 
-      const topPos = rect.top - stageRect.top - 36;
-      const leftPos = rect.left - stageRect.left + (rect.width / 2);
+      const topPos = rect.top - cardRect.top - 36;
+      const leftPos = rect.left - cardRect.left + (rect.width / 2);
 
-      bubble.style.top = `${Math.max(10, topPos)}px`;
+      bubble.style.top = `${Math.max(12, topPos)}px`;
       bubble.style.left = `${leftPos}px`;
-      bubble.style.transform = 'translateX(-50%)';
 
-      stage.appendChild(bubble);
+      card.appendChild(bubble);
 
       setTimeout(() => {
         if (bubble.parentNode) bubble.remove();
-      }, 2600);
+      }, 2500);
     }
 
     /* ========================================================================
-       7. ACCESSIBLE MODALS
+       6. MODAL SYSTEM
        ======================================================================== */
     let activeModal = null;
 
     function initModals() {
-      const backdrops = document.querySelectorAll('.modal-backdrop');
-      backdrops.forEach((bd) => {
+      // Trigger buttons
+      document.querySelectorAll('[data-modal]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const modalId = btn.dataset.modal;
+          openModal(modalId);
+          playSoftPop();
+        });
+      });
+
+      // Close handlers
+      document.querySelectorAll('.modal-backdrop').forEach((bd) => {
         const closeBtn = bd.querySelector('.modal-close-btn');
-        if (closeBtn) {
-          closeBtn.addEventListener('click', () => closeModal(bd));
-        }
+        if (closeBtn) closeBtn.addEventListener('click', () => closeModal(bd));
         bd.addEventListener('click', (e) => {
           if (e.target === bd) closeModal(bd);
         });
@@ -2544,7 +2658,7 @@
     }
 
     /* ========================================================================
-       8. QUOTE ROLLER
+       7. QUOTE ROLLER & VIP FORM
        ======================================================================== */
     const COZY_QUOTES = [
       '"good things take time ♡"',
@@ -2575,16 +2689,12 @@
       });
     }
 
-    /* ========================================================================
-       9. VIP FORM LOCAL STORAGE
-       ======================================================================== */
     function initVIPForm() {
       const form = document.getElementById('notifyForm');
       const input = document.getElementById('notifyEmail');
       const feedback = document.getElementById('notifyFeedback');
       if (!form || !input || !feedback) return;
 
-      // Check if user already subscribed
       const savedEmail = localStorage.getItem('rachelian_vip_email');
       if (savedEmail) {
         feedback.textContent = `You're on the cozy VIP list (${savedEmail}) ♡`;
@@ -2603,32 +2713,12 @@
     }
 
     /* ========================================================================
-       10. PERSISTENT INTERACTIVE TO-DO CHECKLIST
-       ======================================================================== */
-    function initSavedTodos() {
-      const list = document.getElementById('todoList');
-      if (!list) return;
-
-      const checkboxes = list.querySelectorAll('input[type="checkbox"]');
-      checkboxes.forEach((cb) => {
-        const saved = localStorage.getItem(`rachelian_todo_${cb.id}`);
-        if (saved !== null) {
-          cb.checked = saved === 'true';
-        }
-        cb.addEventListener('change', () => {
-          playSoftPop();
-          localStorage.setItem(`rachelian_todo_${cb.id}`, cb.checked);
-        });
-      });
-    }
-
-    /* ========================================================================
-       11. CURSOR SPARKLE TRAIL & BURSTS
+       8. CURSOR SPARKLES & SHORTCUTS
        ======================================================================== */
     function initCursorSparkles() {
       const container = document.getElementById('cursorFx');
       if (!container || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (window.matchMedia('(pointer: coarse)').matches) return; // Disable on touch devices
+      if (window.matchMedia('(pointer: coarse)').matches) return;
 
       let lastX = 0, lastY = 0, lastTime = 0;
 
@@ -2668,23 +2758,15 @@
       }
     }
 
-    /* ========================================================================
-       12. KEYBOARD SHORTCUTS
-       ======================================================================== */
     function initKeyboardShortcuts() {
       window.addEventListener('keydown', (e) => {
-        // If user is currently typing in an input field, do not trigger shortcuts
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-          if (e.key === 'Escape') {
-            e.target.blur();
-          }
+          if (e.key === 'Escape') e.target.blur();
           return;
         }
 
         if (e.key === 'Escape') {
-          if (activeModal) {
-            closeModal(activeModal);
-          }
+          if (activeModal) closeModal(activeModal);
           const lofiPanel = document.getElementById('lofiPanel');
           if (lofiPanel) lofiPanel.classList.remove('active');
         } else if (e.code === 'Space') {
@@ -2698,8 +2780,8 @@
             slider.dispatchEvent(new Event('input'));
           }
         } else if (e.key === 'c' || e.key === 'C') {
-          const cat = document.querySelector('.hotspot-cat-right');
-          if (cat) cat.click();
+          const cat = document.getElementById('catHotspot');
+          if (cat) cat.dispatchEvent(new Event('click'));
         }
       });
     }
